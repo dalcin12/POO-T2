@@ -16,6 +16,7 @@ class ListaSimplesmenteEncadeada {
     public:
         ListaSimplesmenteEncadeada();
         
+        void imprimirLista(No* cabeca);
         bool inserirNoInicio(No* cabeca, int valor);
         bool inserirNoFim(No* cabeca, int valor);
         bool inserirOrdenado(No* cabeca, int valor);
@@ -24,6 +25,7 @@ class ListaSimplesmenteEncadeada {
         bool removerPeloId(No* cabeca, int Id);
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
+        void ambienteTeste();
 
 };
 

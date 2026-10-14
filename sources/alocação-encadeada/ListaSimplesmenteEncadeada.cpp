@@ -1,15 +1,26 @@
-#include "ListaSimplesmenteEncadeada.h"
+#include "../../headers/alocação-encadeada/ListaSimplesmenteEncadeada.h"
+#include <iostream>
+
+using namespace std;
 
 ListaSimplesmenteEncadeada::No::No(int valor) {
     this->valor = valor;
     this->prox = nullptr;
 }
 
-ListaSimplesmenteEncadeada::ListaSimplesmenteEncadeada() {
+ListaSimplesmenteEncadeada::ListaSimplesmenteEncadeada() {}
 
+void ListaSimplesmenteEncadeada::imprimirLista(No *cabeca) {
+    No* aux = cabeca->prox;
+    while (aux != nullptr) {
+        cout << aux->valor << " ";
+        aux = aux->prox;
+    }
+    cout << endl;
 }
 
-bool ListaSimplesmenteEncadeada::inserirNoInicio(No *cabeca, int valor) {
+bool ListaSimplesmenteEncadeada::inserirNoInicio(No *cabeca, int valor)
+{
     No* novo = new No(valor);
     
     if (novo == nullptr) {
@@ -126,4 +137,41 @@ bool ListaSimplesmenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor
 
     aux->valor = novoValor;
     return true;
+}
+
+void ListaSimplesmenteEncadeada::ambienteTeste() {
+    No* cabeca = new No(0); // Cabeça da lista
+
+    // Inserir elementos
+    inserirNoInicio(cabeca, 10);
+    inserirNoFim(cabeca, 20);
+    inserirOrdenado(cabeca, 15);
+
+    // Imprimir lista
+    cout << "Lista após inserções: ";
+    imprimirLista(cabeca);
+
+    // Remover elementos
+    removerInicio(cabeca);
+    removerFim(cabeca);
+    removerPeloId(cabeca, 15);
+
+    // Imprimir lista após remoções
+    cout << "Lista após remoções: ";
+    imprimirLista(cabeca);
+
+    // Alterar elemento
+    inserirNoInicio(cabeca, 30);
+    alterarPeloId(cabeca, 30, 35);
+
+    // Imprimir lista após alteração
+    cout << "Lista após alteração: ";
+    imprimirLista(cabeca);
+
+    // Limpar memória
+    while (cabeca->prox != nullptr) {
+        removerInicio(cabeca);
+    }
+    
+    delete cabeca; // free(cabeca);
 }
