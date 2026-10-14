@@ -10,7 +10,7 @@ class ListaSimplesmenteEncadeada {
             public:
                 No(int valor);
                 int valor;
-                No* proximo;
+                No* prox;
         };
 
     public:
@@ -23,7 +23,7 @@ class ListaSimplesmenteEncadeada {
         bool removerFim(No* cabeca);
         bool removerPeloId(No* cabeca, int Id);
         No* buscarPeloId(No* cabeca, int Id);
-        No* alterarPeloId(No* cabeca, int Id, int novoValor);
+        bool alterarPeloId(No* cabeca, int Id, int novoValor);
 
 };
 
