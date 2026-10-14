@@ -26,7 +26,6 @@ class ListaSimplesmenteEncadeada {
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
         void ambienteTeste();
-
 };
 
 #endif // LISTASIMPLESMENTEENCADEADA_H

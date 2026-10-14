@@ -19,8 +19,7 @@ void ListaSimplesmenteEncadeada::imprimirLista(No *cabeca) {
     cout << endl;
 }
 
-bool ListaSimplesmenteEncadeada::inserirNoInicio(No *cabeca, int valor)
-{
+bool ListaSimplesmenteEncadeada::inserirNoInicio(No *cabeca, int valor) {
     No* novo = new No(valor);
     
     if (novo == nullptr) {
@@ -131,7 +130,6 @@ ListaSimplesmenteEncadeada::No* ListaSimplesmenteEncadeada::buscarPeloId(No* cab
 bool ListaSimplesmenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor) {
     No* aux = buscarPeloId(cabeca, Id);
     if (aux == nullptr) {
-        throw "ID não encontrado na lista.";
         return false;
     }
 
@@ -148,7 +146,7 @@ void ListaSimplesmenteEncadeada::ambienteTeste() {
     inserirOrdenado(cabeca, 15);
 
     // Imprimir lista
-    cout << "Lista após inserções: ";
+    cout << "Lista apos insercoes: ";
     imprimirLista(cabeca);
 
     // Remover elementos
@@ -157,7 +155,7 @@ void ListaSimplesmenteEncadeada::ambienteTeste() {
     removerPeloId(cabeca, 15);
 
     // Imprimir lista após remoções
-    cout << "Lista após remoções: ";
+    cout << "Lista apos remocoes: ";
     imprimirLista(cabeca);
 
     // Alterar elemento
@@ -165,7 +163,7 @@ void ListaSimplesmenteEncadeada::ambienteTeste() {
     alterarPeloId(cabeca, 30, 35);
 
     // Imprimir lista após alteração
-    cout << "Lista após alteração: ";
+    cout << "Lista apos alteracao: ";
     imprimirLista(cabeca);
 
     // Limpar memória
