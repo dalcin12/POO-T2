@@ -1,0 +1,10 @@
+Para a nomeação de classes, usaremos a primeira letra maiúscula de cada palavra e sem espaço (Ex: ListaSimplesmenteEncadeada);
+A nomeação de variáveis/atributos e métodos serão feitas usando a primeira letra minúscula e depois dessa, todas as primeiras maíusculas (Ex: noAuxiliar, inserirNoInicio());
+
+Abreviações para commits:
+LSNO - Lista Sequencial Não Ordenada;
+LSO - Lista Sequencial Ordenada;
+LSE - Lista Simplesmente Encadeada;
+LDE - Lista Duplamente Encadeada;
+LDEC - Lista Duplamente Encadeada Circular;
+ABB - Árvore Binária de Busca;
