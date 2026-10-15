@@ -9,7 +9,11 @@ ListaDuplamenteEncadeada::No::No(int valor) {
     this->ant = nullptr;
 }
 
-ListaDuplamenteEncadeada::ListaDuplamenteEncadeada() {}
+ListaDuplamenteEncadeada::ListaDuplamenteEncadeada() {
+    this->cabeca = new No(0);
+    this->cabeca->prox = nullptr;
+    this->cabeca->ant = nullptr;
+}
 
 void ListaDuplamenteEncadeada::imprimirLista(No* cabeca) {
     No* aux = cabeca->prox;
@@ -19,6 +23,10 @@ void ListaDuplamenteEncadeada::imprimirLista(No* cabeca) {
         aux = aux->prox;
     }
     cout << endl;
+}
+
+void ListaDuplamenteEncadeada::imprimirLista() {
+    imprimirLista(this->cabeca);
 }
 
 bool ListaDuplamenteEncadeada::inserirNoInicio(No* cabeca, int valor) {
@@ -35,6 +43,10 @@ bool ListaDuplamenteEncadeada::inserirNoInicio(No* cabeca, int valor) {
     cabeca->prox = novo;
 
     return true;
+}
+
+bool ListaDuplamenteEncadeada::inserirNoInicio(int valor) {
+    return inserirNoInicio(this->cabeca, valor);
 }
 
 bool ListaDuplamenteEncadeada::inserirNoFim(No* cabeca, int valor) {
@@ -54,6 +66,10 @@ bool ListaDuplamenteEncadeada::inserirNoFim(No* cabeca, int valor) {
     aux->prox = novo;
 
     return true;
+}
+
+bool ListaDuplamenteEncadeada::inserirNoFim(int valor) {
+    return inserirNoFim(this->cabeca, valor);
 }
 
 bool ListaDuplamenteEncadeada::inserirOrdenado(No* cabeca, int valor) {
@@ -78,6 +94,10 @@ bool ListaDuplamenteEncadeada::inserirOrdenado(No* cabeca, int valor) {
     return true;
 }
 
+bool ListaDuplamenteEncadeada::inserirOrdenado(int valor) {
+    return inserirOrdenado(this->cabeca, valor);
+}
+
 bool ListaDuplamenteEncadeada::removerInicio(No* cabeca) {
     if (cabeca->prox == nullptr) {
         return false;
@@ -91,6 +111,10 @@ bool ListaDuplamenteEncadeada::removerInicio(No* cabeca) {
 
     delete aux;
     return true;
+}
+
+bool ListaDuplamenteEncadeada::removerInicio() {
+    return removerInicio(this->cabeca);
 }
 
 bool ListaDuplamenteEncadeada::removerFim(No* cabeca) {
@@ -107,6 +131,10 @@ bool ListaDuplamenteEncadeada::removerFim(No* cabeca) {
     aux->ant->prox = nullptr;
     delete aux;
     return true;
+}
+
+bool ListaDuplamenteEncadeada::removerFim() {
+    return removerFim(this->cabeca);
 }
 
 bool ListaDuplamenteEncadeada::removerPeloId(No* cabeca, int Id) {
@@ -133,6 +161,10 @@ bool ListaDuplamenteEncadeada::removerPeloId(No* cabeca, int Id) {
     return true;
 }
 
+bool ListaDuplamenteEncadeada::removerPeloId(int Id) {
+    return removerPeloId(this->cabeca, Id);
+}
+
 ListaDuplamenteEncadeada::No* ListaDuplamenteEncadeada::buscarPeloId(No* cabeca, int Id) {
     No* aux = cabeca->prox;
 
@@ -141,6 +173,10 @@ ListaDuplamenteEncadeada::No* ListaDuplamenteEncadeada::buscarPeloId(No* cabeca,
     }
 
     return aux;
+}
+
+ListaDuplamenteEncadeada::No* ListaDuplamenteEncadeada::buscarPeloId(int Id) {
+    return buscarPeloId(this->cabeca, Id);
 }
 
 bool ListaDuplamenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor) {
@@ -154,9 +190,11 @@ bool ListaDuplamenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor) 
     return true;
 }
 
-void ListaDuplamenteEncadeada::ambienteTeste() {
-    No* cabeca = new No(0); // Nó cabeça
+bool ListaDuplamenteEncadeada::alterarPeloId(int Id, int novoValor) {
+    return alterarPeloId(this->cabeca, Id, novoValor);
+}
 
+void ListaDuplamenteEncadeada::ambienteTeste(No* cabeca) {
     inserirNoInicio(cabeca, 10);
     inserirNoInicio(cabeca, 20);
     inserirNoFim(cabeca, 5);
@@ -182,4 +220,8 @@ void ListaDuplamenteEncadeada::ambienteTeste() {
     imprimirLista(cabeca);
 
     delete cabeca; // free(cabeca)
+}
+
+void ListaDuplamenteEncadeada::ambienteTeste() {
+    ambienteTeste(this->cabeca);
 }

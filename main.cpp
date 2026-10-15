@@ -12,13 +12,13 @@ int main(void) {
     ListaDuplamenteEncadeada listaDupla = ListaDuplamenteEncadeada();
     ListaDuplamenteEncadeadaCircular listaDuplaCircular = ListaDuplamenteEncadeadaCircular();
 
-    cout << "Executando ambiente de teste da lista simplesmente encadeada..." << endl;
+    cout << "Executando ambiente de teste da lista simplesmente encadeada...\n" << endl;
     lista.ambienteTeste();
 
-    cout << "Executando ambiente de teste da lista duplamente encadeada..." << endl;
+    cout << "\nExecutando ambiente de teste da lista duplamente encadeada...\n" << endl;
     listaDupla.ambienteTeste();
 
-    cout << "Executando ambiente de teste da lista duplamente encadeada circular..." << endl;
+    cout << "\nExecutando ambiente de teste da lista duplamente encadeada circular...\n" << endl;
     listaDuplaCircular.ambienteTeste();
 
     ArvoreBinariaBusca ABB = ArvoreBinariaBusca();
@@ -31,7 +31,7 @@ int main(void) {
     ABB.inserir(8);
 
     ABB.preOrdem();
-    std::cout << "================" << std::endl;
+    std::cout << "\n================\n" << std::endl;
 
     ABB.removerPeloId(5);
 

@@ -132,7 +132,7 @@ void ArvoreBinariaBusca::destruirArvoreBinaria(No* no){
     delete no;
 }
 
-void ArvoreBinariaBusca::~ArvoreBinariaBusca(){
+ArvoreBinariaBusca::~ArvoreBinariaBusca(){
     destruirArvoreBinaria(this->raiz);
     this->raiz = nullptr;
 }

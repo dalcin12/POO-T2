@@ -12,8 +12,7 @@ class ListaDuplamenteEncadeadaCircular {
                 No* ant;
         };
 
-    public:
-        ListaDuplamenteEncadeadaCircular();
+        No* cabeca;
 
         void imprimirLista(No* cabeca);
         bool inserirNoInicio(No* cabeca, int valor);
@@ -24,6 +23,20 @@ class ListaDuplamenteEncadeadaCircular {
         bool removerPeloId(No* cabeca, int Id);
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
+        void ambienteTeste(No* cabeca);
+
+    public:
+        ListaDuplamenteEncadeadaCircular();
+
+        void imprimirLista();
+        bool inserirNoInicio(int valor);
+        bool inserirNoFim(int valor);
+        bool inserirOrdenado(int valor);
+        bool removerInicio();
+        bool removerFim();
+        bool removerPeloId(int Id);
+        No* buscarPeloId(int Id);
+        bool alterarPeloId(int Id, int novoValor);
         void ambienteTeste();
 };
 

@@ -10,6 +10,7 @@ ListaSimplesmenteEncadeada::No::No(int valor) {
 
 ListaSimplesmenteEncadeada::ListaSimplesmenteEncadeada() {
     this->cabeca = new No(0);
+    this->cabeca->prox = nullptr;
 }
 
 void ListaSimplesmenteEncadeada::imprimirLista(No *cabeca) {

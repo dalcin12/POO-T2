@@ -10,7 +10,9 @@ ListaDuplamenteEncadeadaCircular::No::No(int valor) {
 }
 
 ListaDuplamenteEncadeadaCircular::ListaDuplamenteEncadeadaCircular() {
-    
+    this->cabeca = new No(0);
+    this->cabeca->prox = this->cabeca;
+    this->cabeca->ant = this->cabeca;
 }
 
 void ListaDuplamenteEncadeadaCircular::imprimirLista(No* cabeca) {
@@ -22,6 +24,10 @@ void ListaDuplamenteEncadeadaCircular::imprimirLista(No* cabeca) {
     }
 
     cout << endl;
+}
+
+void ListaDuplamenteEncadeadaCircular::imprimirLista() {
+    imprimirLista(this->cabeca);
 }
 
 bool ListaDuplamenteEncadeadaCircular::inserirNoInicio(No* cabeca, int valor) {
@@ -39,6 +45,10 @@ bool ListaDuplamenteEncadeadaCircular::inserirNoInicio(No* cabeca, int valor) {
     return true;
 }
 
+bool ListaDuplamenteEncadeadaCircular::inserirNoInicio(int valor) {
+    return inserirNoInicio(this->cabeca, valor);
+}
+
 bool ListaDuplamenteEncadeadaCircular::inserirNoFim(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
@@ -52,6 +62,10 @@ bool ListaDuplamenteEncadeadaCircular::inserirNoFim(No* cabeca, int valor) {
     cabeca->ant = novo;
 
     return true;
+}
+
+bool ListaDuplamenteEncadeadaCircular::inserirNoFim(int valor) {
+    return inserirNoFim(this->cabeca, valor);
 }
 
 bool ListaDuplamenteEncadeadaCircular::inserirOrdenado(No* cabeca, int valor) {
@@ -74,6 +88,10 @@ bool ListaDuplamenteEncadeadaCircular::inserirOrdenado(No* cabeca, int valor) {
     return true;
 }
 
+bool ListaDuplamenteEncadeadaCircular::inserirOrdenado(int valor) {
+    return inserirOrdenado(this->cabeca, valor);
+}
+
 bool ListaDuplamenteEncadeadaCircular::removerInicio(No* cabeca) {
     if (cabeca->prox == cabeca) {
         cout << "Lista vazia. Não é possível remover o nó." << endl;
@@ -88,6 +106,10 @@ bool ListaDuplamenteEncadeadaCircular::removerInicio(No* cabeca) {
     return true;
 }
 
+bool ListaDuplamenteEncadeadaCircular::removerInicio() {
+    return removerInicio(this->cabeca);
+}
+
 bool ListaDuplamenteEncadeadaCircular::removerFim(No* cabeca) {
     if (cabeca->prox == cabeca) {
         cout << "Lista vazia. Não é possível remover o nó." << endl;
@@ -100,6 +122,10 @@ bool ListaDuplamenteEncadeadaCircular::removerFim(No* cabeca) {
     delete aux;
 
     return true;
+}
+
+bool ListaDuplamenteEncadeadaCircular::removerFim() {
+    return removerFim(this->cabeca);
 }
 
 bool ListaDuplamenteEncadeadaCircular::removerPeloId(No* cabeca, int Id) {
@@ -126,6 +152,10 @@ bool ListaDuplamenteEncadeadaCircular::removerPeloId(No* cabeca, int Id) {
     return true;
 }
 
+bool ListaDuplamenteEncadeadaCircular::removerPeloId(int Id) {
+    return removerPeloId(this->cabeca, Id);
+}
+
 ListaDuplamenteEncadeadaCircular::No* ListaDuplamenteEncadeadaCircular::buscarPeloId(No* cabeca, int Id) {
     No* aux = cabeca->prox;
 
@@ -141,6 +171,10 @@ ListaDuplamenteEncadeadaCircular::No* ListaDuplamenteEncadeadaCircular::buscarPe
     return aux;
 }
 
+ListaDuplamenteEncadeadaCircular::No* ListaDuplamenteEncadeadaCircular::buscarPeloId(int Id) {
+    return buscarPeloId(this->cabeca, Id);
+}
+
 bool ListaDuplamenteEncadeadaCircular::alterarPeloId(No* cabeca, int Id, int novoValor) {
     No* aux = buscarPeloId(cabeca, Id);
 
@@ -152,11 +186,11 @@ bool ListaDuplamenteEncadeadaCircular::alterarPeloId(No* cabeca, int Id, int nov
     return true;
 }
 
-void ListaDuplamenteEncadeadaCircular::ambienteTeste() {
-    No* cabeca = new No(0);
-    cabeca->prox = cabeca;
-    cabeca->ant = cabeca;
+bool ListaDuplamenteEncadeadaCircular::alterarPeloId(int Id, int novoValor) {
+    return alterarPeloId(this->cabeca, Id, novoValor);
+}
 
+void ListaDuplamenteEncadeadaCircular::ambienteTeste(No* cabeca) {
     inserirNoInicio(cabeca, 10);
     inserirNoInicio(cabeca, 20);
     inserirNoFim(cabeca, 5);
@@ -182,4 +216,8 @@ void ListaDuplamenteEncadeadaCircular::ambienteTeste() {
     imprimirLista(cabeca);
 
     delete cabeca;
+}
+
+void ListaDuplamenteEncadeadaCircular::ambienteTeste() {
+    ambienteTeste(this->cabeca);
 }
