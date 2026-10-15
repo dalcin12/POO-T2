@@ -12,8 +12,6 @@ class ListaDuplamenteEncadeadaCircular {
                 No* ant;
         };
 
-        No* cabeca;
-        
     public:
         ListaDuplamenteEncadeadaCircular();
 

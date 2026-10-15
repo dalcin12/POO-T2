@@ -1,10 +1,16 @@
-#include "ListaDuplamenteEncadeadaCircular.h"
+#include "../../headers/alocação-encadeada/ListaDuplamenteEncadeadaCircular.h"
 #include <iostream>
 
 using namespace std;
 
+ListaDuplamenteEncadeadaCircular::No::No(int valor) {
+    this->valor = valor;
+    this->prox = nullptr;
+    this->ant = nullptr;
+}
+
 ListaDuplamenteEncadeadaCircular::ListaDuplamenteEncadeadaCircular() {
-    this->cabeca = new No(0);
+    
 }
 
 void ListaDuplamenteEncadeadaCircular::imprimirLista(No* cabeca) {
@@ -109,7 +115,7 @@ bool ListaDuplamenteEncadeadaCircular::removerPeloId(No* cabeca, int Id) {
     }
 
     if (aux == cabeca) {
-        cout << "Nó com o valor " << Id << " não encontrado." << endl;
+        cout << "No com o valor " << Id << " nao encontrado." << endl;
         return false;
     }
     
@@ -128,7 +134,7 @@ ListaDuplamenteEncadeadaCircular::No* ListaDuplamenteEncadeadaCircular::buscarPe
     }
 
     if (aux == cabeca) {
-        cout << "Nó com o valor " << Id << " não encontrado." << endl;
+        cout << "No com o valor " << Id << " nao encontrado." << endl;
         return nullptr;
     }
 
@@ -147,29 +153,33 @@ bool ListaDuplamenteEncadeadaCircular::alterarPeloId(No* cabeca, int Id, int nov
 }
 
 void ListaDuplamenteEncadeadaCircular::ambienteTeste() {
-    cout << "Executando ambiente de teste da lista duplamente encadeada circular..." << endl;
+    No* cabeca = new No(0);
+    cabeca->prox = cabeca;
+    cabeca->ant = cabeca;
 
     inserirNoInicio(cabeca, 10);
     inserirNoInicio(cabeca, 20);
-    inserirNoFim(cabeca, 30);
-    inserirOrdenado(cabeca, 25);
+    inserirNoFim(cabeca, 5);
+    inserirOrdenado(cabeca, 15);
 
-    cout << "Lista após inserções: ";
+    cout << "Lista apos insercoes: ";
     imprimirLista(cabeca);
 
     removerInicio(cabeca);
-    cout << "Lista após remover o início: ";
+    cout << "Lista apos remover o inicio: ";
     imprimirLista(cabeca);
 
     removerFim(cabeca);
-    cout << "Lista após remover o fim: ";
+    cout << "Lista apos remover o fim: ";
     imprimirLista(cabeca);
 
-    removerPeloId(cabeca, 25);
-    cout << "Lista após remover o nó com valor 25: ";
+    removerPeloId(cabeca, 15);
+    cout << "Lista apos remover o no com valor 15: ";
     imprimirLista(cabeca);
 
-    alterarPeloId(cabeca, 10, 15);
-    cout << "Lista após alterar o nó com valor 10 para 15: ";
+    alterarPeloId(cabeca, 10, 25);
+    cout << "Lista apos alterar o no com valor 10 para 25: ";
     imprimirLista(cabeca);
+
+    delete cabeca;
 }
