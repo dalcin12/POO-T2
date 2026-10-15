@@ -10,11 +10,19 @@ class ArvoreBinariaBusca {
         class No{
             public:
                 int id;
-                No* direita, *esquerda;
+                No *dir, *esq;
                 No(int id);
         };
-    protected:
-        
+        No* raiz;
+
+        No* inserir(No* raiz, int id);
+        bool buscarPeloId(No* raiz, int id);
+    public:
+        ArvoreBinariaBusca();
+
+        void inserir(int id);
+        void buscarPeloId(int id);
+        bool removerPeloId(int id);
 };
 
 #endif //POO_T2_ARVOREBINARIABUSCA_H
