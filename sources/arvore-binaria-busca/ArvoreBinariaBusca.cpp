@@ -116,10 +116,23 @@ void ArvoreBinariaBusca::imprimir(No* raiz, int escolha){
 void ArvoreBinariaBusca::emOrdem(){
     imprimir(this->raiz, 1);
 }
-
 void ArvoreBinariaBusca::preOrdem(){
     imprimir(this->raiz, 2);
 }
 void ArvoreBinariaBusca::posOrdem(){
     imprimir(this->raiz, 3);
+}
+
+void ArvoreBinariaBusca::destruirArvoreBinaria(No* no){
+    if (no == nullptr) return;
+
+    destruirArvoreBinaria(no->esq);
+    destruirArvoreBinaria(no->dir);
+
+    delete no;
+}
+
+void ArvoreBinariaBusca::~ArvoreBinariaBusca(){
+    destruirArvoreBinaria(this->raiz);
+    this->raiz = nullptr;
 }
