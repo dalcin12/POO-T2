@@ -13,6 +13,8 @@ class ListaSimplesmenteEncadeada {
                 No* prox;
         };
 
+        No* cabeca;
+
     public:
         ListaSimplesmenteEncadeada();
         
