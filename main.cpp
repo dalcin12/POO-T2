@@ -8,9 +8,9 @@ using namespace std;
 
 int main(void) {
 
-    ListaSimplesmenteEncadeada lista;
-    ListaDuplamenteEncadeada listaDupla;
-    ListaDuplamenteEncadeadaCircular listaDuplaCircular;
+    ListaSimplesmenteEncadeada lista = ListaSimplesmenteEncadeada();
+    ListaDuplamenteEncadeada listaDupla = ListaDuplamenteEncadeada();
+    ListaDuplamenteEncadeadaCircular listaDuplaCircular = ListaDuplamenteEncadeadaCircular();
 
     cout << "Executando ambiente de teste da lista simplesmente encadeada..." << endl;
     lista.ambienteTeste();

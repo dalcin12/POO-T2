@@ -21,6 +21,10 @@ void ListaSimplesmenteEncadeada::imprimirLista(No *cabeca) {
     cout << endl;
 }
 
+void ListaSimplesmenteEncadeada::imprimirLista() {
+    imprimirLista(this->cabeca);
+}
+
 bool ListaSimplesmenteEncadeada::inserirNoInicio(No *cabeca, int valor) {
     No* novo = new No(valor);
     
@@ -31,6 +35,10 @@ bool ListaSimplesmenteEncadeada::inserirNoInicio(No *cabeca, int valor) {
     novo->prox = cabeca->prox;
     cabeca->prox = novo;
     return true;
+}
+
+bool ListaSimplesmenteEncadeada::inserirNoInicio(int valor) {
+    return inserirNoInicio(this->cabeca, valor);
 }
 
 bool ListaSimplesmenteEncadeada::inserirNoFim(No* cabeca, int valor) {
@@ -49,6 +57,10 @@ bool ListaSimplesmenteEncadeada::inserirNoFim(No* cabeca, int valor) {
     aux->prox = novo;
 
     return true;
+}
+
+bool ListaSimplesmenteEncadeada::inserirNoFim(int valor) {
+    return inserirNoFim(this->cabeca, valor);
 }
 
 bool ListaSimplesmenteEncadeada::inserirOrdenado(No* cabeca, int valor) {
@@ -71,6 +83,10 @@ bool ListaSimplesmenteEncadeada::inserirOrdenado(No* cabeca, int valor) {
     return true;
 }
 
+bool ListaSimplesmenteEncadeada::inserirOrdenado(int valor) {
+    return inserirOrdenado(this->cabeca, valor);
+}
+
 bool ListaSimplesmenteEncadeada::removerInicio(No* cabeca) {
     No* aux = cabeca->prox;
     if (aux == nullptr) {
@@ -80,6 +96,10 @@ bool ListaSimplesmenteEncadeada::removerInicio(No* cabeca) {
     cabeca->prox = aux->prox;
     delete aux; // free(aux);
     return true;
+}
+
+bool ListaSimplesmenteEncadeada::removerInicio() {
+    return removerInicio(this->cabeca);
 }
 
 bool ListaSimplesmenteEncadeada::removerFim(No* cabeca) {
@@ -101,6 +121,10 @@ bool ListaSimplesmenteEncadeada::removerFim(No* cabeca) {
     return true;
 }
 
+bool ListaSimplesmenteEncadeada::removerFim() {
+    return removerFim(this->cabeca);
+}
+
 bool ListaSimplesmenteEncadeada::removerPeloId(No* cabeca, int Id) {
     No* aux = cabeca->prox;
     No* ant = cabeca;
@@ -119,6 +143,10 @@ bool ListaSimplesmenteEncadeada::removerPeloId(No* cabeca, int Id) {
     return true;
 }
 
+bool ListaSimplesmenteEncadeada::removerPeloId(int Id) {
+    return removerPeloId(this->cabeca, Id);
+}
+
 ListaSimplesmenteEncadeada::No* ListaSimplesmenteEncadeada::buscarPeloId(No* cabeca, int Id) {
     No* aux = cabeca->prox;
     
@@ -127,6 +155,10 @@ ListaSimplesmenteEncadeada::No* ListaSimplesmenteEncadeada::buscarPeloId(No* cab
     }
 
     return aux;
+}
+
+ListaSimplesmenteEncadeada::No* ListaSimplesmenteEncadeada::buscarPeloId(int Id) {
+    return buscarPeloId(this->cabeca, Id);
 }
 
 bool ListaSimplesmenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor) {
@@ -139,8 +171,11 @@ bool ListaSimplesmenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor
     return true;
 }
 
-void ListaSimplesmenteEncadeada::ambienteTeste() {
-    No* cabeca = new No(0); // Cabeça da lista
+bool ListaSimplesmenteEncadeada::alterarPeloId(int Id, int novoValor) {
+    return alterarPeloId(this->cabeca, Id, novoValor);
+}
+
+void ListaSimplesmenteEncadeada::ambienteTeste(No* cabeca) {
 
     // Inserir elementos
     inserirNoInicio(cabeca, 10);
@@ -149,7 +184,7 @@ void ListaSimplesmenteEncadeada::ambienteTeste() {
 
     // Imprimir lista
     cout << "Lista apos insercoes: ";
-    imprimirLista(cabeca);
+    imprimirLista();
 
     // Remover elementos
     removerInicio(cabeca);
@@ -158,7 +193,7 @@ void ListaSimplesmenteEncadeada::ambienteTeste() {
 
     // Imprimir lista após remoções
     cout << "Lista apos remocoes: ";
-    imprimirLista(cabeca);
+    imprimirLista();
 
     // Alterar elemento
     inserirNoInicio(cabeca, 30);
@@ -166,7 +201,7 @@ void ListaSimplesmenteEncadeada::ambienteTeste() {
 
     // Imprimir lista após alteração
     cout << "Lista apos alteracao: ";
-    imprimirLista(cabeca);
+    imprimirLista();
 
     // Limpar memória
     while (cabeca->prox != nullptr) {
@@ -174,4 +209,8 @@ void ListaSimplesmenteEncadeada::ambienteTeste() {
     }
     
     delete cabeca; // free(cabeca);
+}
+
+void ListaSimplesmenteEncadeada::ambienteTeste() {
+    ambienteTeste(this->cabeca);
 }
