@@ -65,11 +65,12 @@ ArvoreBinariaBusca::No* ArvoreBinariaBusca::removerPeloId(No* raiz, int id){
     else if (id < raiz->id)
         raiz->esq = removerPeloId(raiz->esq, id);
     else{
-        if (raiz->esq != nullptr){
+        if (raiz->esq == nullptr){
             No* tmp = raiz->dir;
             delete raiz;
             return tmp;
-        }else if (raiz->dir != nullptr){
+        }
+        else if (raiz->dir == nullptr){
             No* tmp = raiz->esq;
             delete raiz;
             return tmp;
@@ -84,4 +85,41 @@ ArvoreBinariaBusca::No* ArvoreBinariaBusca::removerPeloId(No* raiz, int id){
 
 void ArvoreBinariaBusca::removerPeloId(int id){
     this->raiz = removerPeloId(this->raiz, id);
+}
+
+void ArvoreBinariaBusca::imprimir(No* raiz, int escolha){
+    switch (escolha)
+    {
+        case 1:
+            if (raiz != nullptr){
+                imprimir(raiz->esq, 1);
+                std::cout << raiz->id << std::endl;
+                imprimir(raiz->dir, 1);
+            }
+            break;
+        case 2:
+            if (raiz != nullptr){
+                std::cout << raiz->id << std::endl;
+                imprimir(raiz->esq, 2);
+                imprimir(raiz->dir, 2);
+            }
+            break;
+        case 3:
+            if (raiz != nullptr){
+                imprimir(raiz->esq, 3);
+                imprimir(raiz->dir, 3);
+                std::cout << raiz->id << std::endl;
+            }
+    }
+}
+
+void ArvoreBinariaBusca::emOrdem(){
+    imprimir(this->raiz, 1);
+}
+
+void ArvoreBinariaBusca::preOrdem(){
+    imprimir(this->raiz, 2);
+}
+void ArvoreBinariaBusca::posOrdem(){
+    imprimir(this->raiz, 3);
 }
