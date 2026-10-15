@@ -17,12 +17,15 @@ class ArvoreBinariaBusca {
 
         No* inserir(No* raiz, int id);
         bool buscarPeloId(No* raiz, int id);
+        No* removerPeloId(No* raiz, int id);
+        No* sucessor(No* atual);
+        void emOrdem();
     public:
         ArvoreBinariaBusca();
 
         void inserir(int id);
         void buscarPeloId(int id);
-        bool removerPeloId(int id);
+        void removerPeloId(int id);
 };
 
 #endif //POO_T2_ARVOREBINARIABUSCA_H

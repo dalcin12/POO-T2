@@ -48,3 +48,40 @@ void ArvoreBinariaBusca::buscarPeloId(int id){
     else
         std::cout << "Não Encontrado!" << std::endl;
 }
+
+ArvoreBinariaBusca::No* ArvoreBinariaBusca::sucessor(No* atual){
+    atual = atual->dir;
+    while (atual != nullptr && atual->esq != nullptr)
+        atual = atual->esq;
+    return atual;
+}
+
+ArvoreBinariaBusca::No* ArvoreBinariaBusca::removerPeloId(No* raiz, int id){
+    if (raiz == nullptr)
+        return raiz;
+
+    if (id > raiz->id)
+        raiz->dir = removerPeloId(raiz->dir, id);
+    else if (id < raiz->id)
+        raiz->esq = removerPeloId(raiz->esq, id);
+    else{
+        if (raiz->esq != nullptr){
+            No* tmp = raiz->dir;
+            delete raiz;
+            return tmp;
+        }else if (raiz->dir != nullptr){
+            No* tmp = raiz->esq;
+            delete raiz;
+            return tmp;
+        }
+
+        No* tmp = sucessor(raiz);
+        raiz->id = tmp->id;
+        raiz->dir = removerPeloId(raiz->dir, tmp->id);
+    }
+    return raiz;
+}
+
+void ArvoreBinariaBusca::removerPeloId(int id){
+    this->raiz = removerPeloId(this->raiz, id);
+}
