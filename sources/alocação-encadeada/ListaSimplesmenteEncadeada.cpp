@@ -8,7 +8,9 @@ ListaSimplesmenteEncadeada::No::No(int valor) {
     this->prox = nullptr;
 }
 
-ListaSimplesmenteEncadeada::ListaSimplesmenteEncadeada() {}
+ListaSimplesmenteEncadeada::ListaSimplesmenteEncadeada() {
+    this->cabeca = new No(0);
+}
 
 void ListaSimplesmenteEncadeada::imprimirLista(No *cabeca) {
     No* aux = cabeca->prox;
