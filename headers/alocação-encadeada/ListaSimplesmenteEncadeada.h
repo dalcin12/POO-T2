@@ -14,7 +14,7 @@ class ListaSimplesmenteEncadeada {
         };
 
         No* cabeca;
-
+        
     public:
         ListaSimplesmenteEncadeada();
         
