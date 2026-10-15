@@ -20,8 +20,10 @@ class ArvoreBinariaBusca {
         No* removerPeloId(No* raiz, int id);
         No* sucessor(No* atual);
         void imprimir(No* raiz, int escolha);
+        void destruirArvoreBinaria(No* raiz);
     public:
         ArvoreBinariaBusca();
+        ~ArvoreBinariaBusca();
 
         void inserir(int id);
         void buscarPeloId(int id);
