@@ -220,6 +220,27 @@ void ListaDuplamenteEncadeadaCircular::ambienteTeste() {
     ambienteTeste(this->cabeca);
 }
 
+bool ListaDuplamenteEncadeadaCircular::estaVazia(No* cabeca) const {
+    return cabeca->prox == cabeca;
+}
+
+bool ListaDuplamenteEncadeadaCircular::estaVazia() const {
+    if (estaVazia(this->cabeca) == true) {
+        return true;
+    }
+    return false;
+}
+
+int ListaDuplamenteEncadeadaCircular::obterInicio(No* cabeca) const {
+    if (estaVazia(cabeca) == false) {
+        return cabeca->prox->valor;
+    }
+}
+
+int ListaDuplamenteEncadeadaCircular::obterInicio() const {
+    return obterInicio(this->cabeca);
+}
+
 bool ListaDuplamenteEncadeadaCircular::destruirListaDuplamenteEncadeadaCircular(No* cabeca) {
     if (cabeca == nullptr) {
         return false;
