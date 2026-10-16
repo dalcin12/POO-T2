@@ -24,9 +24,10 @@ class ListaDuplamenteEncadeadaCircular {
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
         void ambienteTeste(No* cabeca);
-
+        bool destruirListaDuplamenteEncadeadaCircular(No* cabeca);
     public:
         ListaDuplamenteEncadeadaCircular();
+        ~ListaDuplamenteEncadeadaCircular();
 
         void imprimirLista();
         bool inserirNoInicio(int valor);

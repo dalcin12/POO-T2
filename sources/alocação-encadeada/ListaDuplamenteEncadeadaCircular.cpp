@@ -214,10 +214,35 @@ void ListaDuplamenteEncadeadaCircular::ambienteTeste(No* cabeca) {
     alterarPeloId(cabeca, 10, 25);
     cout << "Lista apos alterar o no com valor 10 para 25: ";
     imprimirLista(cabeca);
-
-    delete cabeca;
 }
 
 void ListaDuplamenteEncadeadaCircular::ambienteTeste() {
     ambienteTeste(this->cabeca);
+}
+
+bool ListaDuplamenteEncadeadaCircular::destruirListaDuplamenteEncadeadaCircular(No* cabeca) {
+    if (cabeca == nullptr) {
+        return false;
+    }
+
+    No* aux = cabeca->prox;
+
+    while (aux != cabeca) {
+        No* prox = aux->prox;
+        delete aux;
+        aux = prox;
+    }
+
+    cabeca->prox = cabeca;
+    cabeca->ant = cabeca;
+    return true;
+}
+
+ListaDuplamenteEncadeadaCircular::~ListaDuplamenteEncadeadaCircular() {
+    if (this->cabeca != nullptr) {
+        destruirListaDuplamenteEncadeadaCircular(this->cabeca);
+        delete this->cabeca;
+        this->cabeca = nullptr;
+    }
+
 }
