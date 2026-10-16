@@ -235,6 +235,7 @@ int ListaDuplamenteEncadeadaCircular::obterInicio(No* cabeca) const {
     if (estaVazia(cabeca) == false) {
         return cabeca->prox->valor;
     }
+    return -1;
 }
 
 int ListaDuplamenteEncadeadaCircular::obterInicio() const {

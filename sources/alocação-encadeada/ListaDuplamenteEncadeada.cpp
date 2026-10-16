@@ -218,10 +218,34 @@ void ListaDuplamenteEncadeada::ambienteTeste(No* cabeca) {
     alterarPeloId(cabeca, 10, 25);
     cout << "Lista apos alterar o valor do ID 10 para 25: ";
     imprimirLista(cabeca);
-
-    delete cabeca; // free(cabeca)
 }
 
 void ListaDuplamenteEncadeada::ambienteTeste() {
     ambienteTeste(this->cabeca);
+}
+
+bool ListaDuplamenteEncadeada::destruirListaDuplamenteEncadeada(No* cabeca) {
+    if (cabeca == nullptr) {
+        return false;
+    }
+
+    No* aux = cabeca->prox;
+
+    while (aux != nullptr) {
+        No* prox = aux->prox;
+        delete aux;
+        aux = prox;
+    }
+
+    cabeca->prox = nullptr;
+    cabeca->ant = nullptr;
+    return true;
+}
+
+ListaDuplamenteEncadeada::~ListaDuplamenteEncadeada() {
+    if (this->cabeca != nullptr) {
+        destruirListaDuplamenteEncadeada(this->cabeca);
+        delete this->cabeca;
+        this->cabeca = nullptr;
+    }
 }

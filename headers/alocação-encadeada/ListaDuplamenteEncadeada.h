@@ -26,9 +26,11 @@ class ListaDuplamenteEncadeada {
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
         void ambienteTeste(No* cabeca);
+        bool destruirListaDuplamenteEncadeada(No* cabeca);
     
     public:
         ListaDuplamenteEncadeada();
+        ~ListaDuplamenteEncadeada();
 
         void imprimirLista();
         bool inserirNoInicio(int valor);
