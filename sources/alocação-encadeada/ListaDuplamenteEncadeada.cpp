@@ -32,6 +32,7 @@ void ListaDuplamenteEncadeada::imprimirLista() {
 bool ListaDuplamenteEncadeada::inserirNoInicio(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
+        cout << "Erro ao alocar memoria para o novo no." << endl;
         return false;
     }
 
@@ -52,6 +53,7 @@ bool ListaDuplamenteEncadeada::inserirNoInicio(int valor) {
 bool ListaDuplamenteEncadeada::inserirNoFim(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
+        cout << "Erro ao alocar memoria para o novo no." << endl;
         return false;
     }
 
@@ -75,6 +77,7 @@ bool ListaDuplamenteEncadeada::inserirNoFim(int valor) {
 bool ListaDuplamenteEncadeada::inserirOrdenado(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
+        cout << "Erro ao alocar memoria para o novo no." << endl;
         return false;
     }
 
@@ -100,6 +103,7 @@ bool ListaDuplamenteEncadeada::inserirOrdenado(int valor) {
 
 bool ListaDuplamenteEncadeada::removerInicio(No* cabeca) {
     if (cabeca->prox == nullptr) {
+        cout << "Lista vazia. Nao e possível remover o no." << endl;
         return false;
     }
 
@@ -119,6 +123,7 @@ bool ListaDuplamenteEncadeada::removerInicio() {
 
 bool ListaDuplamenteEncadeada::removerFim(No* cabeca) {
     if (cabeca->prox == nullptr) {
+        cout << "Lista vazia. Nao e possível remover o no." << endl;
         return false;
     }
 
@@ -139,6 +144,7 @@ bool ListaDuplamenteEncadeada::removerFim() {
 
 bool ListaDuplamenteEncadeada::removerPeloId(No* cabeca, int Id) {
     if (cabeca->prox == nullptr) {
+        cout << "Lista vazia. Nao e possível remover o no." << endl;
         return false;
     }
 
@@ -149,6 +155,7 @@ bool ListaDuplamenteEncadeada::removerPeloId(No* cabeca, int Id) {
     }
 
     if (aux == nullptr) {
+        cout << "No com o valor " << Id << " nao encontrado." << endl;
         return false;
     }
 
@@ -172,6 +179,11 @@ ListaDuplamenteEncadeada::No* ListaDuplamenteEncadeada::buscarPeloId(No* cabeca,
         aux = aux->prox;
     }
 
+    if (aux == nullptr) {
+        cout << "No com o valor " << Id << " nao encontrado." << endl;
+        return nullptr;
+    }
+
     return aux;
 }
 
@@ -183,6 +195,7 @@ bool ListaDuplamenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor) 
     No* aux = buscarPeloId(cabeca, Id);
 
     if (aux == nullptr) {
+        cout << "No com o valor " << Id << " nao encontrado." << endl;
         return false;
     }
 

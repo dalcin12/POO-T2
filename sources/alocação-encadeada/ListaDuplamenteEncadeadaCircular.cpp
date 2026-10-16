@@ -33,7 +33,7 @@ void ListaDuplamenteEncadeadaCircular::imprimirLista() {
 bool ListaDuplamenteEncadeadaCircular::inserirNoInicio(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
-        cout << "Erro ao alocar memória para o novo nó." << endl;
+        cout << "Erro ao alocar memoria para o novo no." << endl;
         return false;
     }
 
@@ -52,7 +52,7 @@ bool ListaDuplamenteEncadeadaCircular::inserirNoInicio(int valor) {
 bool ListaDuplamenteEncadeadaCircular::inserirNoFim(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
-        cout << "Erro ao alocar memória para o novo nó." << endl;
+        cout << "Erro ao alocar memoria para o novo no." << endl;
         return false;
     }
 
@@ -71,7 +71,7 @@ bool ListaDuplamenteEncadeadaCircular::inserirNoFim(int valor) {
 bool ListaDuplamenteEncadeadaCircular::inserirOrdenado(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
-        cout << "Erro ao alocar memória para o novo nó." << endl;
+        cout << "Erro ao alocar memoria para o novo no." << endl;
         return false;
     }
 
@@ -94,7 +94,7 @@ bool ListaDuplamenteEncadeadaCircular::inserirOrdenado(int valor) {
 
 bool ListaDuplamenteEncadeadaCircular::removerInicio(No* cabeca) {
     if (cabeca->prox == cabeca) {
-        cout << "Lista vazia. Não é possível remover o nó." << endl;
+        cout << "Lista vazia. Nao e possível remover o no." << endl;
         return false;
     }
 
@@ -112,7 +112,7 @@ bool ListaDuplamenteEncadeadaCircular::removerInicio() {
 
 bool ListaDuplamenteEncadeadaCircular::removerFim(No* cabeca) {
     if (cabeca->prox == cabeca) {
-        cout << "Lista vazia. Não é possível remover o nó." << endl;
+        cout << "Lista vazia. Nao e possível remover o no." << endl;
         return false;
     }
 
@@ -130,7 +130,7 @@ bool ListaDuplamenteEncadeadaCircular::removerFim() {
 
 bool ListaDuplamenteEncadeadaCircular::removerPeloId(No* cabeca, int Id) {
     if (cabeca->prox == cabeca) {
-        cout << "Lista vazia. Não é possível remover o nó." << endl;
+        cout << "Lista vazia. Nao e possível remover o no." << endl;
         return false;
     }
 
@@ -179,6 +179,7 @@ bool ListaDuplamenteEncadeadaCircular::alterarPeloId(No* cabeca, int Id, int nov
     No* aux = buscarPeloId(cabeca, Id);
 
     if (aux == nullptr) {
+        cout << "No com o valor " << Id << " nao encontrado." << endl;
         return false;
     }
 

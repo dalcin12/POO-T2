@@ -30,6 +30,7 @@ bool ListaSimplesmenteEncadeada::inserirNoInicio(No *cabeca, int valor) {
     No* novo = new No(valor);
     
     if (novo == nullptr) {
+        cout << "Erro ao alocar memoria para o novo no." << endl;
         return false;
     }
 
@@ -45,6 +46,7 @@ bool ListaSimplesmenteEncadeada::inserirNoInicio(int valor) {
 bool ListaSimplesmenteEncadeada::inserirNoFim(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
+        cout << "Erro ao alocar memoria para o novo no." << endl;
         return false;
     }
 
@@ -67,6 +69,7 @@ bool ListaSimplesmenteEncadeada::inserirNoFim(int valor) {
 bool ListaSimplesmenteEncadeada::inserirOrdenado(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
+        cout << "Erro ao alocar memoria para o novo no." << endl;
         return false;
     }
 
@@ -91,6 +94,7 @@ bool ListaSimplesmenteEncadeada::inserirOrdenado(int valor) {
 bool ListaSimplesmenteEncadeada::removerInicio(No* cabeca) {
     No* aux = cabeca->prox;
     if (aux == nullptr) {
+        cout << "Lista vazia. Nao e possível remover o no." << endl;
         return false;
     }
 
@@ -105,6 +109,7 @@ bool ListaSimplesmenteEncadeada::removerInicio() {
 
 bool ListaSimplesmenteEncadeada::removerFim(No* cabeca) {
     if (cabeca->prox == nullptr) {
+        cout << "Lista vazia. Nao e possível remover o no." << endl;
         return false;
     }
 
@@ -127,6 +132,11 @@ bool ListaSimplesmenteEncadeada::removerFim() {
 }
 
 bool ListaSimplesmenteEncadeada::removerPeloId(No* cabeca, int Id) {
+    if (cabeca->prox == nullptr) {
+        cout << "Lista vazia. Nao e possível remover o no." << endl;
+        return false;
+    }
+
     No* aux = cabeca->prox;
     No* ant = cabeca;
 
@@ -136,6 +146,7 @@ bool ListaSimplesmenteEncadeada::removerPeloId(No* cabeca, int Id) {
     }
 
     if (aux == nullptr) {
+        cout << "No com o valor " << Id << " nao encontrado." << endl;
         return false;
     }
 
@@ -155,6 +166,11 @@ ListaSimplesmenteEncadeada::No* ListaSimplesmenteEncadeada::buscarPeloId(No* cab
         aux = aux->prox;
     }
 
+    if (aux == nullptr) {
+        cout << "No com o valor " << Id << " nao encontrado." << endl;
+        return nullptr;
+    }
+
     return aux;
 }
 
@@ -164,7 +180,9 @@ ListaSimplesmenteEncadeada::No* ListaSimplesmenteEncadeada::buscarPeloId(int Id)
 
 bool ListaSimplesmenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor) {
     No* aux = buscarPeloId(cabeca, Id);
+    
     if (aux == nullptr) {
+        cout << "No com o valor " << Id << " nao encontrado." << endl;
         return false;
     }
 
