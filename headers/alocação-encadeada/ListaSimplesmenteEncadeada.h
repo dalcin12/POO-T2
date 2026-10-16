@@ -25,9 +25,11 @@ class ListaSimplesmenteEncadeada {
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
         void ambienteTeste(No* cabeca);
+        bool destruirListaSimplesmenteEncadeada(No* cabeca);
     public:
         ListaSimplesmenteEncadeada();
-        
+        ~ListaSimplesmenteEncadeada();
+
         void imprimirLista();
         bool inserirNoInicio(int valor);
         bool inserirNoFim(int valor);

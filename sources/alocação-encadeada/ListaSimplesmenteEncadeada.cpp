@@ -203,15 +203,33 @@ void ListaSimplesmenteEncadeada::ambienteTeste(No* cabeca) {
     // Imprimir lista após alteração
     cout << "Lista apos alteracao: ";
     imprimirLista();
-
-    // Limpar memória
-    while (cabeca->prox != nullptr) {
-        removerInicio(cabeca);
-    }
-    
-    delete cabeca; // free(cabeca);
 }
 
 void ListaSimplesmenteEncadeada::ambienteTeste() {
     ambienteTeste(this->cabeca);
+}
+
+bool ListaSimplesmenteEncadeada::destruirListaSimplesmenteEncadeada(No* cabeca) {
+    if (cabeca == nullptr) {
+        return false;
+    }
+    
+    No* aux = cabeca->prox;
+
+    while (aux != nullptr) {
+        No* prox = aux->prox;
+        delete aux;
+        aux = prox;
+    }
+
+    cabeca->prox = nullptr;
+    return true;
+}
+
+ListaSimplesmenteEncadeada::~ListaSimplesmenteEncadeada() {
+    if (this->cabeca != nullptr) {
+        destruirListaSimplesmenteEncadeada(this->cabeca);
+        delete this->cabeca;
+        this->cabeca = nullptr;
+    }
 }
