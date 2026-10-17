@@ -25,6 +25,8 @@ class ListaSimplesmenteEncadeada {
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
         void ambienteTeste(No* cabeca);
+        bool estaVazia(No* cabeca) const;
+        int obterInicio(No* cabeca) const;
         bool destruirListaSimplesmenteEncadeada(No* cabeca);
     public:
         ListaSimplesmenteEncadeada();
@@ -39,6 +41,8 @@ class ListaSimplesmenteEncadeada {
         bool removerPeloId(int Id);
         No* buscarPeloId(int Id);
         bool alterarPeloId(int Id, int novoValor);
+        bool estaVazia() const;
+        int obterInicio() const;
         void ambienteTeste();
 };
 

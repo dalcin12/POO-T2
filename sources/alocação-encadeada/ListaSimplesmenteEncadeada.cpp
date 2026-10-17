@@ -244,6 +244,28 @@ bool ListaSimplesmenteEncadeada::destruirListaSimplesmenteEncadeada(No* cabeca) 
     return true;
 }
 
+bool ListaSimplesmenteEncadeada::estaVazia(No* cabeca) const {
+    return cabeca->prox == nullptr;
+
+}
+
+bool ListaSimplesmenteEncadeada::estaVazia() const {
+    estaVazia(this->cabeca);
+}
+
+// Complexidade: O(1) - devolve -1 se vazia, igual à circular
+int ListaSimplesmenteEncadeada::obterInicio(No* cabeca) const {
+    if (estaVazia()) {
+        return -1;
+    }
+    return cabeca->prox->valor;
+}
+
+int ListaSimplesmenteEncadeada::obterInicio() const {
+    obterInicio(this->cabeca);
+}
+
+// Complexidade: O(n) - libera todos os nós e a cabeça
 ListaSimplesmenteEncadeada::~ListaSimplesmenteEncadeada() {
     if (this->cabeca != nullptr) {
         destruirListaSimplesmenteEncadeada(this->cabeca);
