@@ -11,6 +11,8 @@
 class Grafo{
     private:
         int numVertices;
+        int numArestas;
+
         class Vertice{
             public:
                 int id;
@@ -22,7 +24,7 @@ class Grafo{
     public:
         void definirNumVertices(int _numVertices);
         void criarGrafo();
-        void adicionarAdjacencia(int** _arestas, int numArestas);
+        void adicionarAdjacencia(int** _arestas);
 };
 
 #endif //POO_T2_GRAFOS_H

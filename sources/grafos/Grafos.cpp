@@ -8,8 +8,9 @@ Grafo::Vertice::Vertice(int _id, Vertice* _prox){
     this->prox = _prox;
 }
 
-void Grafo::definirNumVertices(int _numVertices){
+void Grafo::definirNumVerticesEArestas(int _numVertices, int _numArestas){
     this->numVertices = _numVertices;
+    this->numArestas = _numArestas;
 }
 
 void Grafo::criarGrafo(){
@@ -20,8 +21,8 @@ void Grafo::criarGrafo(){
     }
 }
 
-void Grafo::adicionarAdjacencia(int** _arestas, int numArestas){
-    for (int i = 0; i < numArestas; i++){
+void Grafo::adicionarAdjacencia(int** _arestas){
+    for (int i = 0; i < this->numArestas; i++){
         int u = _arestas[i][0];
         int v = _arestas[i][1];
         Vertice* aux = &this->listaAdj[u];
