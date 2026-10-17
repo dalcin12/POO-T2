@@ -22,7 +22,7 @@ class Grafo{
     public:
         void definirNumVertices(int _numVertices);
         void criarGrafo();
-        void adicionarAdjacencia(int** _arestas);
+        void adicionarAdjacencia(int** _arestas, int numArestas);
 };
 
 #endif //POO_T2_GRAFOS_H
