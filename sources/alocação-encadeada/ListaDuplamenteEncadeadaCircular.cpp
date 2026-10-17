@@ -243,6 +243,17 @@ int ListaDuplamenteEncadeadaCircular::obterInicio() const {
     return obterInicio(this->cabeca);
 }
 
+int ListaDuplamenteEncadeadaCircular::obterFim(No* cabeca) const {
+    if (estaVazia(cabeca) == false) {
+        return cabeca->ant->valor;
+    }
+    return -1;
+}
+
+int ListaDuplamenteEncadeadaCircular::obterFim() const {
+    return obterFim(this->cabeca);
+}
+
 bool ListaDuplamenteEncadeadaCircular::destruirListaDuplamenteEncadeadaCircular(No* cabeca) {
     if (cabeca == nullptr) {
         return false;

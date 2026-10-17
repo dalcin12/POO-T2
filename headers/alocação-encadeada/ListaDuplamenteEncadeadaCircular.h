@@ -26,6 +26,7 @@ class ListaDuplamenteEncadeadaCircular {
         void ambienteTeste(No* cabeca);
         bool estaVazia(No* cabeca) const;
         int obterInicio(No* cabeca) const;
+        int obterFim(No* cabeca) const;
         bool destruirListaDuplamenteEncadeadaCircular(No* cabeca);
     public:
         ListaDuplamenteEncadeadaCircular();
@@ -43,6 +44,7 @@ class ListaDuplamenteEncadeadaCircular {
         void ambienteTeste();
         bool estaVazia() const;
         int obterInicio() const;
+        int obterFim() const;
 };
 
 #endif // LISTADUPLAMENTEENCADEADACIRCULAR_H
