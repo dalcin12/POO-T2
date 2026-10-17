@@ -5,7 +5,7 @@
 #ifndef POO_T2_GRAFOS_H
 #define POO_T2_GRAFOS_H
 
-#include <vector>
+#include "../../headers/alocação-sequencial/Vetor.h"
 #include "../../headers/alocação-encadeada/ListaSimplesmenteEncadeada.h"
 
 class Grafo{
@@ -14,13 +14,15 @@ class Grafo{
         class Vertice{
             public:
                 int id;
-                ListaSimplesmenteEncadeada arestas;
-                Vertice(int id, std::vector<int> _arestas);
+                Vertice* prox;
+                Vertice(): id(-1), prox(nullptr){}
+                Vertice(int _id, Vertice* _prox);
         };
-        std::vector<Vertice> listaAdj;
+        Vertice* listaAdj = nullptr;
     public:
         void definirNumVertices(int _numVertices);
-        void criarGrafo(std::vector<std::vector<int>> _arestas);
+        void criarGrafo();
+        void adicionarAdjacencia(int** _arestas);
 };
 
 #endif //POO_T2_GRAFOS_H

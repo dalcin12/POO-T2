@@ -7,6 +7,9 @@
 Vetor::Vetor(int n){
     this->v = new int[n];
     this->tamanho = n;
+    for (int i = 0; i < n; i++){
+        this->v[i] = 0;
+    }
 }
 
 Vetor::~Vetor(){

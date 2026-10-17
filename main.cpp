@@ -2,6 +2,7 @@
 #include "headers/alocação-encadeada/ListaSimplesmenteEncadeada.h"
 #include "headers/alocação-encadeada/ListaDuplamenteEncadeada.h"
 #include "headers/alocação-encadeada/ListaDuplamenteEncadeadaCircular.h"
+#include "headers/alocação-sequencial/Vetor.h"
 #include "headers/arvore-binaria-busca/ArvoreBinariaBusca.h"
 
 using namespace std;
