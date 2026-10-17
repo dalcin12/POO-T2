@@ -6,6 +6,7 @@ class ListaDuplamenteEncadeada {
     protected:
 
     private:
+        // Criacao do No como uma classe privada.
         class No {
             public:
                 No(int valor);
@@ -14,8 +15,10 @@ class ListaDuplamenteEncadeada {
                 No* ant;
         };
 
+        // Criacao do cabeca como um No privado para mais seguranca.
         No* cabeca;
 
+        // Metodos da lista.
         void imprimirLista(No* cabeca);
         bool inserirNoInicio(No* cabeca, int valor);
         bool inserirNoFim(No* cabeca, int valor);
@@ -32,6 +35,7 @@ class ListaDuplamenteEncadeada {
         ListaDuplamenteEncadeada();
         ~ListaDuplamenteEncadeada();
 
+        // Metodos publicos da lista.
         void imprimirLista();
         bool inserirNoInicio(int valor);
         bool inserirNoFim(int valor);

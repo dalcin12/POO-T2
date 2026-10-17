@@ -3,6 +3,7 @@
 
 class ListaDuplamenteEncadeadaCircular {
     private:
+        // Criacao do No como uma classe privada.
         class No {
             public:
                 No(int valor);
@@ -12,8 +13,10 @@ class ListaDuplamenteEncadeadaCircular {
                 No* ant;
         };
 
+        // Criacao do cabeca como privado para mais seguranca.
         No* cabeca;
 
+        // Metodos da lista.
         void imprimirLista(No* cabeca);
         bool inserirNoInicio(No* cabeca, int valor);
         bool inserirNoFim(No* cabeca, int valor);
@@ -24,14 +27,20 @@ class ListaDuplamenteEncadeadaCircular {
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
         void ambienteTeste(No* cabeca);
+
+        // Metodos auxiliares para implementacao da fila.
         bool estaVazia(No* cabeca) const;
         int obterInicio(No* cabeca) const;
         int obterFim(No* cabeca) const;
+
+        // Metodo para liberar memoria da lista.
         bool destruirListaDuplamenteEncadeadaCircular(No* cabeca);
+
     public:
         ListaDuplamenteEncadeadaCircular();
         ~ListaDuplamenteEncadeadaCircular();
 
+        // Metodos publicos da lista.
         void imprimirLista();
         bool inserirNoInicio(int valor);
         bool inserirNoFim(int valor);
@@ -42,6 +51,8 @@ class ListaDuplamenteEncadeadaCircular {
         No* buscarPeloId(int Id);
         bool alterarPeloId(int Id, int novoValor);
         void ambienteTeste();
+
+        // Metodos publicos da fila.
         bool estaVazia() const;
         int obterInicio() const;
         int obterFim() const;

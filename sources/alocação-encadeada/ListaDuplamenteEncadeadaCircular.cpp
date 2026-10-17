@@ -3,18 +3,21 @@
 
 using namespace std;
 
+// Construtor do No.
 ListaDuplamenteEncadeadaCircular::No::No(int valor) {
     this->valor = valor;
     this->prox = nullptr;
     this->ant = nullptr;
 }
 
+// Construtor da lista.
 ListaDuplamenteEncadeadaCircular::ListaDuplamenteEncadeadaCircular() {
     this->cabeca = new No(0);
     this->cabeca->prox = this->cabeca;
     this->cabeca->ant = this->cabeca;
 }
 
+// Complexidade: O(n) - impressao da lista.
 void ListaDuplamenteEncadeadaCircular::imprimirLista(No* cabeca) {
     No* aux = cabeca->prox;
 
@@ -30,6 +33,7 @@ void ListaDuplamenteEncadeadaCircular::imprimirLista() {
     imprimirLista(this->cabeca);
 }
 
+// Complexidade: O(1) - insercao no inicio da lista.
 bool ListaDuplamenteEncadeadaCircular::inserirNoInicio(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
@@ -49,6 +53,7 @@ bool ListaDuplamenteEncadeadaCircular::inserirNoInicio(int valor) {
     return inserirNoInicio(this->cabeca, valor);
 }
 
+// Complexidade: O(1) - insercao no fim da lista.
 bool ListaDuplamenteEncadeadaCircular::inserirNoFim(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
@@ -68,6 +73,7 @@ bool ListaDuplamenteEncadeadaCircular::inserirNoFim(int valor) {
     return inserirNoFim(this->cabeca, valor);
 }
 
+// Complexidade: O(n) - insercao na posicao ordenada da lista.
 bool ListaDuplamenteEncadeadaCircular::inserirOrdenado(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
@@ -92,6 +98,7 @@ bool ListaDuplamenteEncadeadaCircular::inserirOrdenado(int valor) {
     return inserirOrdenado(this->cabeca, valor);
 }
 
+// Complexidade: O(1) - remocao no inicio da lista.
 bool ListaDuplamenteEncadeadaCircular::removerInicio(No* cabeca) {
     if (cabeca->prox == cabeca) {
         cout << "Lista vazia. Nao e possível remover o no." << endl;
@@ -110,6 +117,7 @@ bool ListaDuplamenteEncadeadaCircular::removerInicio() {
     return removerInicio(this->cabeca);
 }
 
+// Complexidade: O(1) - remocao no fim da lista.
 bool ListaDuplamenteEncadeadaCircular::removerFim(No* cabeca) {
     if (cabeca->prox == cabeca) {
         cout << "Lista vazia. Nao e possível remover o no." << endl;
@@ -128,6 +136,7 @@ bool ListaDuplamenteEncadeadaCircular::removerFim() {
     return removerFim(this->cabeca);
 }
 
+// Complexidade: O(n) - remocao atraves do ID.
 bool ListaDuplamenteEncadeadaCircular::removerPeloId(No* cabeca, int Id) {
     if (cabeca->prox == cabeca) {
         cout << "Lista vazia. Nao e possível remover o no." << endl;
@@ -156,6 +165,7 @@ bool ListaDuplamenteEncadeadaCircular::removerPeloId(int Id) {
     return removerPeloId(this->cabeca, Id);
 }
 
+// Complexidade: O(n) - busca exaustiva atraves do ID.
 ListaDuplamenteEncadeadaCircular::No* ListaDuplamenteEncadeadaCircular::buscarPeloId(No* cabeca, int Id) {
     No* aux = cabeca->prox;
 
@@ -175,6 +185,7 @@ ListaDuplamenteEncadeadaCircular::No* ListaDuplamenteEncadeadaCircular::buscarPe
     return buscarPeloId(this->cabeca, Id);
 }
 
+// Complexidade: O(n) - alteracao atraves do ID.
 bool ListaDuplamenteEncadeadaCircular::alterarPeloId(No* cabeca, int Id, int novoValor) {
     No* aux = buscarPeloId(cabeca, Id);
 
@@ -221,17 +232,16 @@ void ListaDuplamenteEncadeadaCircular::ambienteTeste() {
     ambienteTeste(this->cabeca);
 }
 
+// Complexidade: O(1) - retorna se a fila esta vazia.
 bool ListaDuplamenteEncadeadaCircular::estaVazia(No* cabeca) const {
     return cabeca->prox == cabeca;
 }
 
 bool ListaDuplamenteEncadeadaCircular::estaVazia() const {
-    if (estaVazia(this->cabeca) == true) {
-        return true;
-    }
-    return false;
+    return estaVazia(this->cabeca);
 }
 
+// Complexidade: O(1) - obtem o valor do inicio da lista.
 int ListaDuplamenteEncadeadaCircular::obterInicio(No* cabeca) const {
     if (estaVazia(cabeca) == false) {
         return cabeca->prox->valor;
@@ -243,6 +253,7 @@ int ListaDuplamenteEncadeadaCircular::obterInicio() const {
     return obterInicio(this->cabeca);
 }
 
+// Complexidade: O(1) - obtem o valor do fim da lista.
 int ListaDuplamenteEncadeadaCircular::obterFim(No* cabeca) const {
     if (estaVazia(cabeca) == false) {
         return cabeca->ant->valor;
@@ -254,6 +265,7 @@ int ListaDuplamenteEncadeadaCircular::obterFim() const {
     return obterFim(this->cabeca);
 }
 
+// Complexidade: O(n) - libera a memoria da lista.
 bool ListaDuplamenteEncadeadaCircular::destruirListaDuplamenteEncadeadaCircular(No* cabeca) {
     if (cabeca == nullptr) {
         return false;
@@ -272,11 +284,11 @@ bool ListaDuplamenteEncadeadaCircular::destruirListaDuplamenteEncadeadaCircular(
     return true;
 }
 
+// Destrutor da lista.
 ListaDuplamenteEncadeadaCircular::~ListaDuplamenteEncadeadaCircular() {
     if (this->cabeca != nullptr) {
         destruirListaDuplamenteEncadeadaCircular(this->cabeca);
         delete this->cabeca;
         this->cabeca = nullptr;
     }
-
 }
