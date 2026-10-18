@@ -5,6 +5,7 @@ class Elemento{
     public:
         int getID() const;
         virtual void imprimirInfo() const = 0;
+        virtual ~Elemento() = default;
     protected:
         int ID;
 };

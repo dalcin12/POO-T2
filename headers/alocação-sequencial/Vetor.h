@@ -5,13 +5,25 @@
 #ifndef POO_T2_VETOR_H
 #define POO_T2_VETOR_H
 
+#include "Elemento.h"
+
 class Vetor{
-    public:
+    // antes, sem proteção dos dados, não sei se era de propósito, por isso não tirei. ~Yan
+    /*public:
         int *v = nullptr;
         int tamanho = 0;
         Vetor(int n);
         ~Vetor();
         void aumentarVetor(int n);
-};
+        */ 
+    protected:
+        Elemento **v = nullptr;
+        int tamanho = 0;
+
+    public:
+        Vetor(int n);
+        ~Vetor();
+        void aumentarVetor(int n);
+    };
 
 #endif //POO_T2_VETOR_H
