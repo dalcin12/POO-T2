@@ -1,0 +1,82 @@
+#include "../../headers/alocação-sequencial/Paciente.h"
+#include "../../headers/alocação-sequencial/Elemento.h"
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+
+using namespace std;
+
+Paciente :: Paciente(int ID, string nome, int idade, string planoDeSaude, data_de_nascimento dataDeNascimento) : Elemento(){
+    this -> ID = ID;
+    this -> nome = nome;
+    this -> idade = idade;
+    this -> planoDeSaude = planoDeSaude;
+    this -> dataDeNascimento = dataDeNascimento;
+}
+
+void Paciente :: imprimirInfo() const {
+    cout << "ID: "<< getID() << endl;
+    cout << "Nome: "<< getNome() << endl;
+    cout << "Idade: "<< this->idade << endl;
+    cout << "Plano de saude: "<< this->planoDeSaude << endl;
+    cout << "Data de nascimento: " << this->dataDeNascimento.dia << "/" << this->dataDeNascimento.mes << "/" << this->dataDeNascimento.ano << endl;
+}
+
+bool Paciente :: agendarConsulta(){
+    int dia = 0;
+    cout << "Dias disponiveis: 15, 16, 17 e 18." << endl;
+    cout << "Digite o dia que deseja marcar a consulta: ";
+    cin >> dia;
+
+    if (dia >= 15 && dia <= 18) {
+        this->diaDaConsulta = dia;
+        cout << "Consulta marcada com sucesso no dia " << dia << "." << endl;
+        return true;
+    }
+    
+    cout << "Nao foi possivel marcar a consulta. Dia indisponivel." << endl;
+    return false;
+}
+
+void Paciente :: cancelarConsulta() {
+    this->diaDaConsulta = 0;
+    cout << "Consulta cancelada com sucesso!" << endl;
+}
+
+int Paciente :: getDiaDaConsulta() {
+    if (this->diaDaConsulta >= 15 && this->diaDaConsulta <= 18) {
+        return this->diaDaConsulta;
+    }
+        
+    cout << "Erro ao obter o dia da consulta. A consulta nao foi marcada." << endl;
+    return -1;
+}
+
+string Paciente :: getNome() {
+    return this->nome;
+}
+
+int Paciente :: getIdade() {
+    return this->idade;
+}
+
+string Paciente :: getPlanoDeSaude() {
+    return this->planoDeSaude;
+}
+
+data_de_nascimento Paciente :: getDataDeNascimento() {
+    data_de_nascimento data;
+    data.dia = this->dataDeNascimento.dia;
+    data.mes = this->dataDeNascimento.mes;
+    data.ano = this->dataDeNascimento.ano;
+
+    return data;
+}
+
+void Paciente :: setPlanoDeSaude(string novoPlanoDeSaude) {
+    this->planoDeSaude = novoPlanoDeSaude;
+}
+
+ void Paciente :: ambiente_teste(){
+    cout << "Dias disponiveis: ";
+}
