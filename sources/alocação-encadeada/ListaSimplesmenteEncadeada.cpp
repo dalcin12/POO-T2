@@ -3,16 +3,19 @@
 
 using namespace std;
 
-ListaSimplesmenteEncadeada::No::No(int valor) {
+// Construtor do No.
+ListaSimplesmenteEncadeada::No::No(int valor) { 
     this->valor = valor;
     this->prox = nullptr;
 }
 
+// Construtor da LSE.
 ListaSimplesmenteEncadeada::ListaSimplesmenteEncadeada() {
     this->cabeca = new No(0);
     this->cabeca->prox = nullptr;
 }
 
+// Complexidade: O(n) - impressao da lista.
 void ListaSimplesmenteEncadeada::imprimirLista(No *cabeca) {
     No* aux = cabeca->prox;
     while (aux != nullptr) {
@@ -26,6 +29,7 @@ void ListaSimplesmenteEncadeada::imprimirLista() {
     imprimirLista(this->cabeca);
 }
 
+// Complexidade: O(1) - insercao no inicio da lista.
 bool ListaSimplesmenteEncadeada::inserirNoInicio(No *cabeca, int valor) {
     No* novo = new No(valor);
     
@@ -43,6 +47,7 @@ bool ListaSimplesmenteEncadeada::inserirNoInicio(int valor) {
     return inserirNoInicio(this->cabeca, valor);
 }
 
+// Complexidade: O(n) - insercao no fim da lista.
 bool ListaSimplesmenteEncadeada::inserirNoFim(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
@@ -66,6 +71,7 @@ bool ListaSimplesmenteEncadeada::inserirNoFim(int valor) {
     return inserirNoFim(this->cabeca, valor);
 }
 
+// Complexidade: O(n) - insercao na posicao ordenada da lista.
 bool ListaSimplesmenteEncadeada::inserirOrdenado(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
@@ -91,6 +97,7 @@ bool ListaSimplesmenteEncadeada::inserirOrdenado(int valor) {
     return inserirOrdenado(this->cabeca, valor);
 }
 
+// Complexidade: O(1) - remocao do inicio da lista.
 bool ListaSimplesmenteEncadeada::removerInicio(No* cabeca) {
     No* aux = cabeca->prox;
     if (aux == nullptr) {
@@ -107,6 +114,7 @@ bool ListaSimplesmenteEncadeada::removerInicio() {
     return removerInicio(this->cabeca);
 }
 
+// Complexidade: O(n) - remocao do fim da lista.
 bool ListaSimplesmenteEncadeada::removerFim(No* cabeca) {
     if (cabeca->prox == nullptr) {
         cout << "Lista vazia. Nao e possível remover o no." << endl;
@@ -131,6 +139,7 @@ bool ListaSimplesmenteEncadeada::removerFim() {
     return removerFim(this->cabeca);
 }
 
+// Complexidade: O(n) - remocao atraves do ID.
 bool ListaSimplesmenteEncadeada::removerPeloId(No* cabeca, int Id) {
     if (cabeca->prox == nullptr) {
         cout << "Lista vazia. Nao e possível remover o no." << endl;
@@ -159,6 +168,7 @@ bool ListaSimplesmenteEncadeada::removerPeloId(int Id) {
     return removerPeloId(this->cabeca, Id);
 }
 
+// Complexidade: O(n) - busca exaustiva atraves do ID.
 ListaSimplesmenteEncadeada::No* ListaSimplesmenteEncadeada::buscarPeloId(No* cabeca, int Id) {
     No* aux = cabeca->prox;
     
@@ -178,6 +188,7 @@ ListaSimplesmenteEncadeada::No* ListaSimplesmenteEncadeada::buscarPeloId(int Id)
     return buscarPeloId(this->cabeca, Id);
 }
 
+// Complexidade: O(n) - altera um valor atraves do ID.
 bool ListaSimplesmenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor) {
     No* aux = buscarPeloId(cabeca, Id);
     
@@ -227,6 +238,28 @@ void ListaSimplesmenteEncadeada::ambienteTeste() {
     ambienteTeste(this->cabeca);
 }
 
+// Complexidade: O(1) - checa se a lista esta vazia. 
+bool ListaSimplesmenteEncadeada::estaVazia(No* cabeca) const {
+    return cabeca->prox == nullptr;
+}
+
+bool ListaSimplesmenteEncadeada::estaVazia() const {
+    estaVazia(this->cabeca);
+}
+
+// Complexidade: O(1) - obtem o valor inicial da lista.
+int ListaSimplesmenteEncadeada::obterInicio(No* cabeca) const {
+    if (estaVazia()) {
+        return -1;
+    }
+    return cabeca->prox->valor;
+}
+
+int ListaSimplesmenteEncadeada::obterInicio() const {
+    obterInicio(this->cabeca);
+}
+
+// Complexidade: O(n) - libera a memoria da lista.
 bool ListaSimplesmenteEncadeada::destruirListaSimplesmenteEncadeada(No* cabeca) {
     if (cabeca == nullptr) {
         return false;
@@ -244,6 +277,7 @@ bool ListaSimplesmenteEncadeada::destruirListaSimplesmenteEncadeada(No* cabeca) 
     return true;
 }
 
+// Destrutor da lista.
 ListaSimplesmenteEncadeada::~ListaSimplesmenteEncadeada() {
     if (this->cabeca != nullptr) {
         destruirListaSimplesmenteEncadeada(this->cabeca);

@@ -3,6 +3,7 @@
 #include "headers/alocação-encadeada/ListaDuplamenteEncadeada.h"
 #include "headers/alocação-encadeada/ListaDuplamenteEncadeadaCircular.h"
 #include "headers/arvore-binaria-busca/ArvoreBinariaBusca.h"
+#include "headers/grafos/Grafos.h"
 
 using namespace std;
 
@@ -36,5 +37,16 @@ int main(void) {
     ABB.removerPeloId(5);
 
     ABB.posOrdem();
+
+    Grafo g(3, true);
+    for (int i = 0; i < 4; i++)
+    {
+        g.adicionarVertice();
+    }
+    g.adicionarAresta(0, 3);
+    g.adicionarAresta(0, 2);
+    g.adicionarAresta(0,1);
+    g.buscaEmProfundidade(0);
+    g.buscaEmLargura(0);
     return 1;
 }

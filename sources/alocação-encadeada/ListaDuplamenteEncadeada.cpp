@@ -3,18 +3,21 @@
 
 using namespace std;
 
+// Construtor do No.
 ListaDuplamenteEncadeada::No::No(int valor) {
     this->valor = valor;
     this->prox = nullptr;
     this->ant = nullptr;
 }
 
+// Construtor da Lista.
 ListaDuplamenteEncadeada::ListaDuplamenteEncadeada() {
     this->cabeca = new No(0);
     this->cabeca->prox = nullptr;
     this->cabeca->ant = nullptr;
 }
 
+// Complexidade: O(n) - impressao da lista.
 void ListaDuplamenteEncadeada::imprimirLista(No* cabeca) {
     No* aux = cabeca->prox;
 
@@ -29,6 +32,7 @@ void ListaDuplamenteEncadeada::imprimirLista() {
     imprimirLista(this->cabeca);
 }
 
+// Complexidade: O(1) - insercao no inicio da lista.
 bool ListaDuplamenteEncadeada::inserirNoInicio(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
@@ -50,6 +54,7 @@ bool ListaDuplamenteEncadeada::inserirNoInicio(int valor) {
     return inserirNoInicio(this->cabeca, valor);
 }
 
+// Complexidade: O(n) - insercao no fim da lista.
 bool ListaDuplamenteEncadeada::inserirNoFim(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
@@ -74,6 +79,7 @@ bool ListaDuplamenteEncadeada::inserirNoFim(int valor) {
     return inserirNoFim(this->cabeca, valor);
 }
 
+// Complexidade: O(n) - insercao na posicao ordenada da lista.
 bool ListaDuplamenteEncadeada::inserirOrdenado(No* cabeca, int valor) {
     No* novo = new No(valor);
     if (novo == nullptr) {
@@ -101,6 +107,7 @@ bool ListaDuplamenteEncadeada::inserirOrdenado(int valor) {
     return inserirOrdenado(this->cabeca, valor);
 }
 
+// Complexidade: O(1) - remocao no inicio da lista.
 bool ListaDuplamenteEncadeada::removerInicio(No* cabeca) {
     if (cabeca->prox == nullptr) {
         cout << "Lista vazia. Nao e possível remover o no." << endl;
@@ -121,6 +128,7 @@ bool ListaDuplamenteEncadeada::removerInicio() {
     return removerInicio(this->cabeca);
 }
 
+// Complexidade: O(n) - remocao no fim da lista.
 bool ListaDuplamenteEncadeada::removerFim(No* cabeca) {
     if (cabeca->prox == nullptr) {
         cout << "Lista vazia. Nao e possível remover o no." << endl;
@@ -142,6 +150,7 @@ bool ListaDuplamenteEncadeada::removerFim() {
     return removerFim(this->cabeca);
 }
 
+// Complexidade: O(n) - remocao atraves do ID.
 bool ListaDuplamenteEncadeada::removerPeloId(No* cabeca, int Id) {
     if (cabeca->prox == nullptr) {
         cout << "Lista vazia. Nao e possível remover o no." << endl;
@@ -172,6 +181,7 @@ bool ListaDuplamenteEncadeada::removerPeloId(int Id) {
     return removerPeloId(this->cabeca, Id);
 }
 
+// Complexidade: O(n) - busca exaustiva atraves do ID.
 ListaDuplamenteEncadeada::No* ListaDuplamenteEncadeada::buscarPeloId(No* cabeca, int Id) {
     No* aux = cabeca->prox;
 
@@ -191,6 +201,7 @@ ListaDuplamenteEncadeada::No* ListaDuplamenteEncadeada::buscarPeloId(int Id) {
     return buscarPeloId(this->cabeca, Id);
 }
 
+// Complexidade: O(n) - alteracao atraves do ID.
 bool ListaDuplamenteEncadeada::alterarPeloId(No* cabeca, int Id, int novoValor) {
     No* aux = buscarPeloId(cabeca, Id);
 
@@ -237,6 +248,7 @@ void ListaDuplamenteEncadeada::ambienteTeste() {
     ambienteTeste(this->cabeca);
 }
 
+// Complexidade: O(n) - liberacao da memoria da lista.
 bool ListaDuplamenteEncadeada::destruirListaDuplamenteEncadeada(No* cabeca) {
     if (cabeca == nullptr) {
         return false;
@@ -255,6 +267,7 @@ bool ListaDuplamenteEncadeada::destruirListaDuplamenteEncadeada(No* cabeca) {
     return true;
 }
 
+// Destrutor da lista.
 ListaDuplamenteEncadeada::~ListaDuplamenteEncadeada() {
     if (this->cabeca != nullptr) {
         destruirListaDuplamenteEncadeada(this->cabeca);
