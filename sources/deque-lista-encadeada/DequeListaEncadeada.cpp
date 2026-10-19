@@ -50,6 +50,6 @@ bool DequeListaEncadeadaCircular::consultarFim(int &valor) const {
     if (listaBase.estaVazia()) {
         return false;
     }
-    valor = listaBase.obterInicio();
+    valor = listaBase.obterFim();
     return true;
 }
