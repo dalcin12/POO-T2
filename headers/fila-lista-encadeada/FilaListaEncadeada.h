@@ -16,16 +16,13 @@
 class FilaEncadeadaCircular {
     private:
         ListaDuplamenteEncadeadaCircular listaBase;
-        int tamanho;
     public:
-        FilaEncadeadaCircular();
 
         void imprimirFila();
         bool enfileirar(int valor);
         bool desenfileirar();
         bool consultarInicio(int& valor) const;
         bool filaVazia() const;
-        int getTamanho() const;
 };
 
 

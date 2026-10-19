@@ -21,20 +21,16 @@
 class DequeListaEncadeadaCircular {
 private:
     ListaDuplamenteEncadeadaCircular listaBase;
-    int tamanho;
 
 public:
-    DequeListaEncadeadaCircular();
 
     void imprimirDeque();
     bool inserirInicio(int valor);
     bool inserirFim(int valor);
     bool removerInicio();
     bool removerFim();
-    bool inicioDeque(int& valor) const;
-    bool fimDeque(int& valor) const;
-    bool vazia() const;
-    int getTamanho() const;
+    bool consultarInicio(int& valor) const;
+    bool consultarFim(int& valor) const;
 };
 
 #endif //POO_T2_DEQUELISTAENCADEADA_H
