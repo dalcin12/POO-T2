@@ -1,5 +1,5 @@
-#include "../../headers/alocação-sequencial/Paciente.h"
-#include "../../headers/alocação-sequencial/Elemento.h"
+#include "../../headers/alocacao-sequencial/Paciente.h"
+#include "../../headers/alocacao-sequencial/Elemento.h"
 #include <iostream>
 #include <string>
 #include <stdlib.h>

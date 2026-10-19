@@ -18,12 +18,13 @@ class Vetor{
         */ 
     protected:
         Elemento **v = nullptr;
-        int tamanho = 0;
+        int tamanho = 0, quantidade = 0;
 
     public:
         Vetor(int n);
         ~Vetor();
         void aumentarVetor(int n);
+        int BuscarIndice(int id);
     };
 
 #endif //POO_T2_VETOR_H

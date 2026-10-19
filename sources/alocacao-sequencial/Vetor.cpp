@@ -2,11 +2,12 @@
 // Created by yuri on 16/10/2026.
 //
 
-#include "../../headers/alocação-sequencial/Vetor.h"
+#include "../../headers/alocacao-sequencial/Vetor.h"
 
 Vetor::Vetor(int n){
     this->v = new Elemento*[n];
     this->tamanho = n;
+    this->quantidade = 0;
     for (int i = 0; i < n; i++){
         this->v[i] = nullptr;
     }
@@ -35,3 +36,16 @@ void Vetor::aumentarVetor(int n){
     this->v = aux;
     this->tamanho = n;
 }
+
+int Vetor::BuscarIndice(int id){
+    for (int i = 0; i < this->quantidade; i++){
+        if (this->v[i]->getID() == id){
+            return i;
+        }
+    }
+    return -1;
+
+}
+
+
+

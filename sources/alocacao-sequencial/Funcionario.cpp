@@ -1,5 +1,5 @@
-#include "../../headers/alocação-sequencial/Elemento.h"
-#include "../../headers/alocação-sequencial/Funcionario.h"
+#include "../../headers/alocacao-sequencial/Elemento.h"
+#include "../../headers/alocacao-sequencial/Funcionario.h"
 #include <string>
 #include <iostream>
 
