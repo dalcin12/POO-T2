@@ -71,6 +71,81 @@ int main() {
     ListaDuplamenteEncadeadaCircular listaCircular;
     listaCircular.ambienteTeste();
 
+    cout << "\n--- Teste da Pilha sobre Lista Simplesmente Encadeada (LIFO) ---\n";
+    PilhaListaSimplesmenteEncadeada pilha;
+    int topo = 0;
+
+    cout << "Pilha vazia? " << (pilha.pilhaVazia() ? "sim" : "nao") << "\n";
+    pilha.empilhar(7);
+    pilha.empilhar(12);
+    pilha.empilhar(23);
+    cout << "Apos empilhar 7, 12 e 23 (topo a esquerda): ";
+    pilha.imprimirPilha();
+
+    if (pilha.topoPilha(topo)) {
+        cout << "Topo da pilha: " << topo << "\n";
+    }
+
+    pilha.desempilhar();
+    cout << "Apos desempilhar uma vez: ";
+    pilha.imprimirPilha();
+
+    pilha.desempilhar();
+    pilha.desempilhar();
+    cout << "Pilha vazia apos desempilhar tudo? " << (pilha.pilhaVazia() ? "sim" : "nao") << "\n";
+    cout << "Tentando desempilhar com a pilha vazia:\n";
+    bool desempilhou = pilha.desempilhar();
+    cout << "Retorno: " << (desempilhou ? "true" : "false") << "\n";
+
+    cout << "\n--- Teste da Fila sobre Lista Duplamente Encadeada Circular (FIFO) ---\n";
+    FilaEncadeadaCircular fila;
+    int inicioFila = 0;
+
+    cout << "Fila vazia? " << (fila.filaVazia() ? "sim" : "nao") << "\n";
+    fila.enfileirar(1);
+    fila.enfileirar(2);
+    fila.enfileirar(3);
+    cout << "Apos enfileirar 1, 2 e 3 (inicio a esquerda): ";
+    fila.imprimirFila();
+
+    if (fila.consultarInicio(inicioFila)) {
+        cout << "Inicio da fila: " << inicioFila << "\n";
+    }
+
+    fila.desenfileirar();
+    cout << "Apos desenfileirar uma vez: ";
+    fila.imprimirFila();
+
+    fila.desenfileirar();
+    fila.desenfileirar();
+    cout << "Fila vazia apos desenfileirar tudo? " << (fila.filaVazia() ? "sim" : "nao") << "\n";
+    cout << "Tentando desenfileirar com a fila vazia:\n";
+    bool desenfileirou = fila.desenfileirar();
+    cout << "Retorno: " << (desenfileirou ? "true" : "false") << "\n";
+
+    cout << "\n--- Teste do Deque sobre Lista Duplamente Encadeada Circular ---\n";
+    DequeListaEncadeadaCircular deque;
+    int inicioDeque = 0, fimDeque = 0;
+
+    deque.inserirFim(2);
+    deque.inserirInicio(1);
+    deque.inserirFim(3);
+    deque.inserirInicio(0);
+    cout << "Apos inserirFim(2), inserirInicio(1), inserirFim(3), inserirInicio(0): ";
+    deque.imprimirDeque();
+
+    if (deque.consultarInicio(inicioDeque) && deque.consultarFim(fimDeque)) {
+        cout << "Inicio do deque: " << inicioDeque << " | Fim do deque: " << fimDeque << "\n";
+    }
+
+    deque.removerInicio();
+    cout << "Apos removerInicio: ";
+    deque.imprimirDeque();
+
+    deque.removerFim();
+    cout << "Apos removerFim: ";
+    deque.imprimirDeque();
+
     cout << "\n--- Teste da Arvore Binaria de Busca (ABB) ---\n";
     ArvoreBinariaBusca abb;
     abb.inserir(5);

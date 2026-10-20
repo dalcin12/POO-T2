@@ -1,7 +1,7 @@
 //
 // Created by samue on 18/10/2026.
 //
-#include "../../headers/deque-lista-encadeada/DequeListaEncadeada.h"
+#include "../../headers/alocacao-encadeada/DequeListaEncadeada.h"
 #include <iostream>
 
 using namespace std;
