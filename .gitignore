@@ -1,0 +1,10 @@
+# Configurações da IDE
+.idea/
+CMakeLists.txt
+
+# Build
+cmake-build-*/
+build/
+*.exe
+*.o
+*.out
