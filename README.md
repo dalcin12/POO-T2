@@ -17,16 +17,16 @@
 ## 🛠️ Decisões de design e arquitetura do sistema
 
 ### 1. Orientação a Objetos e Polimorfismo (Parte I)
-* **Classe Abstrata `Elemento`:** Definida com o atributo protegido `ID` e o método virtual puro `imprimirInfo() const = 0`. As classes concretas `Funcionario` e `Paciente` herdam de `Elemento`, permitindo que contêineres sequenciais armazenem ponteiros `Elemento*` e executem chamadas polimórficas.
-* **Gerenciamento de Memória Sequencial:** O destrutor da classe base `Vetor` e das listas sequenciais garante a liberação contínua de memória para evitar vazamentos (*memory leaks*).
+* **Classe abstrata `Elemento`:** Definida com o atributo protegido `ID` e o método virtual puro `imprimirInfo() const = 0`. As classes concretas `Funcionario` e `Paciente` herdam de `Elemento`, permitindo que contêineres sequenciais armazenem ponteiros `Elemento*` e executem chamadas polimórficas.
+* **Gerenciamento de memória sequencial:** O destrutor da classe base `Vetor` e das listas sequenciais garante a liberação contínua de memória para evitar vazamentos (*memory leaks*).
 
 ### 2. Composição para pilhas, filas e deques
-* **Pilha e Fila Sequenciais:** Implementadas utilizando **composição** sobre a `ListaNaoOrdenada`. As operações do ADT (`empilhar`, `desempilhar`, `enfileirar`, `desenfileirar`) reusam a lógica validada da lista subjacente.
-* **Fila Sequencial Circular:** Criada para sanar o gargalo da fila sequencial simples (cuja remoção exige deslocamento O(n)), reduzindo a remoção para O(1) através do uso de ponteiros circulares de início e fim.
-* **Pilhas, Filas e Deques Encadeados:** Utilizam composição sobre `ListaSimplesmenteEncadeada` e `ListaDuplamenteEncadeadaCircular`.
+* **Pilha e fila sequenciais:** Implementadas utilizando **composição** sobre a `ListaNaoOrdenada`. As operações do ADT (`empilhar`, `desempilhar`, `enfileirar`, `desenfileirar`) reusam a lógica validada da lista subjacente.
+* **Fila sequencial circular:** Criada para sanar o gargalo da fila sequencial simples (cuja remoção exige deslocamento O(n)), reduzindo a remoção para O(1) através do uso de ponteiros circulares de início e fim.
+* **Pilhas, filas e deques encadeados:** Utilizam composição sobre `ListaSimplesmenteEncadeada` e `ListaDuplamenteEncadeadaCircular`.
 
 ### 3. Encapsulamento dos nós (parte II)
-* **Encapsulamento Restrito:** Nas classes encadeadas, na `ArvoreBinariaBusca` e no `Grafo`, a estrutura do nó (`struct No` / `class No`) foi declarada como **membro privado** das próprias classes contêineres, ocultando totalmente os detalhes de ponteiros do usuário da classe.
+* **Encapsulamento restrito:** Nas classes encadeadas, na `ArvoreBinariaBusca` e no `Grafo`, a estrutura do nó (`struct No` / `class No`) foi declarada como **membro privado** das próprias classes contêineres, ocultando totalmente os detalhes de ponteiros do usuário da classe.
 
 ### 4. Grafos de representação dupla
 * A classe `Grafo` mantém **simultaneamente** a Matriz de Adjacência (`int** matrizAdj`) e a Lista de Adjacência (`No** listaAdj`), combinando a checagem rápida de vizinhança em O(1) com a eficiência de espaço da lista.
