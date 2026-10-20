@@ -5,7 +5,7 @@
 
 ---
 
-## 👥 Integrantes do Grupo
+## 👥 Integrantes do grupo
 * Eduarda Pecles Novais
 * Gabriel Dalcin da Cunha
 * Samuel de Freitas Pinagé
@@ -14,28 +14,28 @@
 
 ---
 
-## 🛠️ Decisões de Design e Arquitetura do Sistema
+## 🛠️ Decisões de design e arquitetura do sistema
 
 ### 1. Orientação a Objetos e Polimorfismo (Parte I)
 * **Classe Abstrata `Elemento`:** Definida com o atributo protegido `ID` e o método virtual puro `imprimirInfo() const = 0`. As classes concretas `Funcionario` e `Paciente` herdam de `Elemento`, permitindo que contêineres sequenciais armazenem ponteiros `Elemento*` e executem chamadas polimórficas.
 * **Gerenciamento de Memória Sequencial:** O destrutor da classe base `Vetor` e das listas sequenciais garante a liberação contínua de memória para evitar vazamentos (*memory leaks*).
 
-### 2. Composição para Pilhas, Filas e Deques
+### 2. Composição para pilhas, filas e deques
 * **Pilha e Fila Sequenciais:** Implementadas utilizando **composição** sobre a `ListaNaoOrdenada`. As operações do ADT (`empilhar`, `desempilhar`, `enfileirar`, `desenfileirar`) reusam a lógica validada da lista subjacente.
-* **Fila Sequencial Circular:** Criada para sanar o gargalo da fila sequencial simples (cuja remoção exige deslocamento $O(n)$), reduzindo a remoção para $O(1)$ através do uso de ponteiros circulares de início e fim.
+* **Fila Sequencial Circular:** Criada para sanar o gargalo da fila sequencial simples (cuja remoção exige deslocamento O(n)), reduzindo a remoção para O(1) através do uso de ponteiros circulares de início e fim.
 * **Pilhas, Filas e Deques Encadeados:** Utilizam composição sobre `ListaSimplesmenteEncadeada` e `ListaDuplamenteEncadeadaCircular`.
 
-### 3. Encapsulamento dos Nós (Parte II)
+### 3. Encapsulamento dos nós (parte II)
 * **Encapsulamento Restrito:** Nas classes encadeadas, na `ArvoreBinariaBusca` e no `Grafo`, a estrutura do nó (`struct No` / `class No`) foi declarada como **membro privado** das próprias classes contêineres, ocultando totalmente os detalhes de ponteiros do usuário da classe.
 
-### 4. Grafos de Representação Dupla
-* A classe `Grafo` mantém **simultaneamente** a Matriz de Adjacência (`int** matrizAdj`) e a Lista de Adjacência (`No** listaAdj`), combinando a checagem rápida de vizinhança em $O(1)$ com a eficiência de espaço da lista.
+### 4. Grafos de representação dupla
+* A classe `Grafo` mantém **simultaneamente** a Matriz de Adjacência (`int** matrizAdj`) e a Lista de Adjacência (`No** listaAdj`), combinando a checagem rápida de vizinhança em O(1) com a eficiência de espaço da lista.
 
 ---
 
-## 📊 Tabela de Complexidade Computacional das Operações
+## 📊 Tabela de complexidade computacional das operações
 
-### Alocação Sequencial
+### Alocação sequencial
 | Estrutura | Inserir Início | Inserir Fim | Remover Início | Remover Fim | Buscar por ID | Alterar por ID |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Lista Não Ordenada** | $O(n)$ | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ |
@@ -44,7 +44,7 @@
 | **Fila Sequencial Simples** | - | $O(1)$ | $O(n)$ | - | - | - |
 | **Fila Sequencial Circular** | - | $O(1)$ | $O(1)$ | - | - | - |
 
-### Alocação Encadeada e Árvores
+### Alocação encadeada e árvores
 | Estrutura | Inserir Início | Inserir Fim | Remover Início | Remover Fim | Buscar por ID | Percursos |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Lista Simplesmente Encadeada** | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ | - |
@@ -69,7 +69,7 @@
 
 ---
 
-## 🚀 Como Compilar e Executar
+## 🚀 Como compilar e executar
 
 Utilizando o compilador `g++`:
 ```bash
