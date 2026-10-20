@@ -1,11 +1,11 @@
 //
 // Created by samue on 15/10/2026.
 //
-#ifndef POO_T2_PLIHALISTAENCADEADA_H
+#ifndef POO_T2_PILHALISTAENCADEADA_H
 
-#define POO_T2_PLIHALISTAENCADEADA_H
+#define POO_T2_PILHALISTAENCADEADA_H
 
-#include "../alocação-encadeada/ListaSimplesmenteEncadeada.h"
+#include "../alocacao-encadeada/ListaSimplesmenteEncadeada.h"
 
 // Pilha (LIFO)
 // O topo é o início da lista:
@@ -27,4 +27,4 @@ class PilhaListaSimplesmenteEncadeada{
         bool pilhaVazia() const;
 };
 
-#endif //POO_T2_PLIHALISTAENCADEADA_H
+#endif //POO_T2_PILHALISTAENCADEADA_H

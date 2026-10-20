@@ -5,7 +5,7 @@
 #ifndef POO_T2_DEQUELISTAENCADEADA_H
 #define POO_T2_DEQUELISTAENCADEADA_H
 
-#include "../alocação-encadeada/ListaDuplamenteEncadeadaCircular.h"
+#include "../alocacao-encadeada/ListaDuplamenteEncadeadaCircular.h"
 
 // Deque (double-ended queue) sobre lista duplamente encadeada circular
 // Permite inserir e remover nas duas pontas:

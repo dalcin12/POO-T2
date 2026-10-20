@@ -1,7 +1,7 @@
 //
 // Created by samue on 16/10/2026.
 //
-#include "../../headers/pilha-lista-encadeada/PlihaListaEncadeada.h"
+#include "../../headers/alocacao-encadeada/PilhaListaEncadeada.h"
 #include <iostream>
 
 using namespace std;

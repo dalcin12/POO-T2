@@ -5,7 +5,7 @@
 #ifndef POO_T2_FILALISTAENCADEADA_H
 #define POO_T2_FILALISTAENCADEADA_H
 
-#include "../../headers/alocação-encadeada/ListaDuplamenteEncadeadaCircular.h"
+#include "../../headers/alocacao-encadeada/ListaDuplamenteEncadeadaCircular.h"
 
 // Fila (FIFO)
 // A frente da fila é o início da lista, e o final da fila é o final da lista.

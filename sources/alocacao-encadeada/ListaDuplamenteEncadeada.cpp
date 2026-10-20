@@ -1,4 +1,4 @@
-#include "../../headers/alocação-encadeada/ListaDuplamenteEncadeada.h"
+#include "../../headers/alocacao-encadeada/ListaDuplamenteEncadeada.h"
 #include <iostream>
 
 using namespace std;
