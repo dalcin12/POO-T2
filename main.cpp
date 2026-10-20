@@ -26,10 +26,14 @@ int main() {
     cout << "===================================================\n\n";
 
     // Criacao de objetos heterogeneos derivados de Elemento
+
+    data_de_nascimento data1 = {15, 3, 1990};
+    data_de_nascimento data2 = {22, 7, 1985};
+
     Elemento* f1 = new Funcionario(105, "Carlos Silva", 35, 4500.0f, 40);
-    Elemento* p1 = new Paciente(102, "Ana Souza", 28, "Hipertensao", "Dra. Beatriz");
+    Elemento* p1 = new Paciente(102, "Ana Souza", 28, "Unimed", data1);
     Elemento* f2 = new Funcionario(108, "Mariana Lima", 29, 5200.0f, 44);
-    Elemento* p2 = new Paciente(101, "Joao Mendes", 62, "Diabetes Tipo 2", "Dr. Roberto");
+    Elemento* p2 = new Paciente(101, "Joao Mendes", 62, "Amil", data2);
 
     cout << "--- Teste de Polimorfismo na Lista Nao Ordenada ---\n";
     ListaNaoOrdenada listaSeq(5);
@@ -47,8 +51,11 @@ int main() {
 
     cout << "\n--- Teste da Lista Ordenada Sequencial (Busca Binaria) ---\n";
     ListaOrdenada listaOrd(5);
+
+    data_de_nascimento data3 = {5, 11, 1995};
+
     listaOrd.Inserir(new Funcionario(30, "Alice", 25, 3000.0f, 40));
-    listaOrd.Inserir(new Paciente(10, "Bruno", 40, "Gripe", "Dr. Clinico"));
+    listaOrd.Inserir(new Paciente(10, "Bruno", 40, "Hapvida", data3));
     listaOrd.Inserir(new Funcionario(20, "Carla", 30, 3500.0f, 40));
 
     Elemento* enc = listaOrd.BuscarPeloId(20);
