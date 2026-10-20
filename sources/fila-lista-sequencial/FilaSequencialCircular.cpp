@@ -7,7 +7,7 @@ FilaSequencialCircular::~FilaSequencialCircular() {
     delete[] v;
 }
 
-bool FilaSequencialCircular::Enfileirar(Elemento* elemento) {
+bool FilaSequencialCircular::enfileirar(Elemento* elemento) {
     if (filaCheia()) {
         return false;
     }
@@ -17,7 +17,7 @@ bool FilaSequencialCircular::Enfileirar(Elemento* elemento) {
     return true;
 }
 
-bool FilaSequencialCircular::Desenfileirar() {
+bool FilaSequencialCircular::desenfileirar() {
     if (filaVazia()) {
         return false;
     }

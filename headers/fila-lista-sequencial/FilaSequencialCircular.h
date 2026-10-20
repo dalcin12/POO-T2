@@ -14,8 +14,8 @@ class FilaSequencialCircular {
     public:
         FilaSequencialCircular(int capacidade);
         ~FilaSequencialCircular();
-        bool Enfileirar(Elemento* elemento);
-        bool Desenfileirar();
+        bool enfileirar(Elemento* elemento);
+        bool desenfileirar();
         Elemento* consultarInicio() const;
         bool filaCheia() const;
         bool filaVazia() const;
