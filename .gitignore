@@ -5,6 +5,5 @@ CMakeLists.txt
 # Build
 cmake-build-*/
 build/
-*.exe
 *.o
 *.out

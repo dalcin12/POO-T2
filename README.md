@@ -80,5 +80,5 @@ inserção e remoção ficam em colunas únicas.*
 
 Utilizando o compilador `g++`:
 ```bash
-g++ main.cpp sources/alocacao-sequencial/*.cpp sources/alocacao-encadeada/*.cpp sources/arvore-binaria-busca/*.cpp sources/grafos/*.cpp -o programa
-./programa
+g++ main.cpp sources/alocacao-sequencial/*.cpp sources/alocacao-encadeada/*.cpp sources/arvore-binaria-busca/*.cpp sources/grafos/*.cpp -o main
+./main
