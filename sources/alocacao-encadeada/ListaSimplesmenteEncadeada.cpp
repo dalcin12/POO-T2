@@ -244,7 +244,7 @@ bool ListaSimplesmenteEncadeada::estaVazia(No* cabeca) const {
 }
 
 bool ListaSimplesmenteEncadeada::estaVazia() const {
-    estaVazia(this->cabeca);
+    return estaVazia(this->cabeca);
 }
 
 // Complexidade: O(1) - obtem o valor inicial da lista.
@@ -256,7 +256,7 @@ int ListaSimplesmenteEncadeada::obterInicio(No* cabeca) const {
 }
 
 int ListaSimplesmenteEncadeada::obterInicio() const {
-    obterInicio(this->cabeca);
+    return obterInicio(this->cabeca);
 }
 
 // Complexidade: O(n) - libera a memoria da lista.
