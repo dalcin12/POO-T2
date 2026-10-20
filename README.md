@@ -38,24 +38,31 @@
 ### Alocação sequencial
 | Estrutura | Inserir Início | Inserir Fim | Remover Início | Remover Fim | Buscar por ID | Alterar por ID |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Lista Não Ordenada** | $O(n)$ | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ |
+| **Lista Não Ordenada** | $O(1)$ | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ |
 | **Lista Ordenada** | $O(n)$ | $O(n)$ | $O(n)$ | $O(n)$ | $O(\log_2 n)$ | $O(n)$ |
 | **Pilha Sequencial** | $O(n)$ | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ |
-| **Fila Sequencial Simples** | - | $O(n)$ | $O(n)$ | - | - | - |
-| **Fila Sequencial Circular** | - | $O(1)$ | $O(1)$ | - | - | - |
+| **Fila Sequencial Simples** | $O(n)$ | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ |
+| **Fila Sequencial Circular** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(n)$ | $O(n)$ |
 
-### Alocação encadeada e árvores
+### Alocação encadeada
 | Estrutura | Inserir Início | Inserir Fim | Remover Início | Remover Fim | Buscar por ID | Percursos |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Lista Simplesmente Encadeada** | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ | - |
-| **Lista Duplamente Encadeada** | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ | - |
-| **Lista Dupla Circular** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(n)$ | - |
-| **Pilha Simplesmente Encadeada** | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ | - |
-| **Fila Encadeada Circular** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(n)$ | - |
-| **Deque Encadeado Circular** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(n)$ | - |
-| **Árvore Binária de Busca (ABB)** | $O(h)$ | - | $O(h)$ | - | $O(h)$ | $O(n)$ |
+| **Lista Simplesmente Encadeada** | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ | $O(n)$ |
+| **Lista Duplamente Encadeada** | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ | $O(n)$ |
+| **Lista Dupla Circular** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(n)$ | $O(n)$ |
+| **Pilha Simplesmente Encadeada** | $O(1)$ | $O(n)$ | $O(1)$ | $O(n)$ | $O(n)$ | $O(n)$ |
+| **Fila Encadeada Circular** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(n)$ | $O(n)$ |
+| **Deque Encadeado Circular** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(n)$ | $O(n)$ |
 
-*Nota: $h$ representa a altura da árvore ($O(\log n)$ no melhor caso/equilibrada e $O(n)$ no pior caso).*
+
+### Árvore Binária de Busca
+| Estrutura | Inserir | Remover | Buscar por ID | Percursos (em-ordem, pré-ordem, pós-ordem) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Árvore Binária de Busca (ABB)** | $O(h)$ | $O(h)$ | $O(h)$ | $O(n)$ |
+
+*Nota: $h$ representa a altura da árvore ($O(\log n)$ no melhor caso/equilibrada e $O(n)$ no pior caso
+quando a árvore degenera em uma lista). A ABB não tem "início" nem "fim", por isso 
+inserção e remoção ficam em colunas únicas.*
 
 ### Grafos
 | Operação / Algoritmo | Complexidade de Tempo | Complexidade de Espaço |
