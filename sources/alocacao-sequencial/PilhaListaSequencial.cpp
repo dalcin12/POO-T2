@@ -25,12 +25,12 @@ Elemento* PilhaListaSequencial::consultarTopo() const {
 
 
 bool PilhaListaSequencial::pilhaCheia() const {
-    return this->listaBase.ListaCheia();
+    return this->listaBase.estaCheia();
 }
 
 
 bool PilhaListaSequencial::pilhaVazia() const {
-    return this->listaBase.ListaVazia();
+    return this->listaBase.estaVazia();
 }
 
 void PilhaListaSequencial::imprimirPilha() const {

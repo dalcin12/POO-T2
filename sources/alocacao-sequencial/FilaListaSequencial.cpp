@@ -25,12 +25,12 @@ Elemento* FilaListaSequencial::consultarInicio() const {
 
 
 bool FilaListaSequencial::filaCheia() const {
-    return this->listaBase.ListaCheia();
+    return this->listaBase.estaCheia();
 }
 
 
 bool FilaListaSequencial::filaVazia() const {
-    return this->listaBase.ListaVazia();
+    return this->listaBase.estaVazia();
 }
 
 void FilaListaSequencial::imprimirFila() const {
