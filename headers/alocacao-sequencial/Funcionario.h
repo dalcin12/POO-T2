@@ -6,16 +6,16 @@
 
 class Funcionario : public Elemento {
     private:
-        string nome;
+        std :: string nome;
         int idade;
         float salario;
         int cargaHoraria;
     
     public:
-        Funcionario(int ID, string nome, int idade, float salario, int cargaHoraria);
+        Funcionario(int ID, std :: string nome, int idade, float salario, int cargaHoraria);
         
         void imprimirInfo() const;
-        string getNome();
+        std :: string getNome();
         int getIdade();
         float getSalario();
         int getCargaHoraria();
