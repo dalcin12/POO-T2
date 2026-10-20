@@ -15,6 +15,7 @@ Paciente :: Paciente(int ID, string nome, int idade, string planoDeSaude, data_d
 }
 
 void Paciente :: imprimirInfo() const {
+    cout << "--- Tipo: Paciente ---" << endl;
     cout << "ID: "<< getID() << endl;
     cout << "Nome: "<< this->nome << endl;
     cout << "Idade: "<< this->idade << endl;

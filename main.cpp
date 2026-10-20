@@ -45,7 +45,7 @@ int main() {
     // Percorrendo a lista e invocando imprimirInfo() polimorficamente
     cout << "\nInvocando imprimirInfo() para cada objeto da lista heterogenea:\n";
     for (int i = 0; i < listaSeq.getQuantidade(); i++) {
-        cout << "\n[Elemento " << i + 1 << "]:\n";
+        cout << "\nElemento na posicao " << i << ":\n";
         listaSeq.getElemento(i)->imprimirInfo();
     }
 

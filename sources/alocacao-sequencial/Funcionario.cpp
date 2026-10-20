@@ -14,6 +14,7 @@ Funcionario :: Funcionario(int ID, string nome, int idade, float salario, int ca
 }
 
 void Funcionario :: imprimirInfo() const {
+    cout << "--- Tipo: Funcionario ---" << endl;
     cout << "ID: "<< getID() << endl;
     cout << "Nome: "<< this->nome << endl;
     cout << "Idade: "<< this->idade << endl;
