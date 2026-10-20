@@ -5,14 +5,17 @@
 class ListaOrdenada: public Vetor {
     public:
     ListaOrdenada(int capacidade) : Vetor(capacidade) {}
-    ~ListaOrdenada() {}
+    virtual~ListaOrdenada() {}
     Elemento* BuscarPeloId(int id);
+    Elemento* obterPrimeiro() const;
+    Elemento* obterUltimo() const;
     bool Inserir(Elemento* elemento);
     bool RemoverPrimeiro();
     bool RemoverUltimo();
     bool RemoverPeloId(int id);
     bool AlterarPeloId(int id, Elemento* novoElemento);
-    
+    void imprimirListaOrdenada() const;
+
 };
     
 

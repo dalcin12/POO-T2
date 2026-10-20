@@ -3,9 +3,10 @@
 //
 
 #include "../../headers/alocacao-sequencial/ListaOrdenada.h"
+#include <iostream>
 
 Elemento* ListaOrdenada::BuscarPeloId(int id){
-    if (this->quantidade == 0){
+    if (this->estaVazia()){
         return nullptr;
     }
     int fim = this -> quantidade - 1, inicio = 0;
@@ -25,11 +26,25 @@ Elemento* ListaOrdenada::BuscarPeloId(int id){
     return nullptr;
 }
 
+Elemento* ListaOrdenada::obterPrimeiro() const{
+    if (this-> estaVazia()){
+        return nullptr;
+    }
+    return this->v[0];
+}
+
+Elemento* ListaOrdenada::obterUltimo() const{
+    if (this->estaVazia()){
+        return nullptr;
+    }
+    return this->v[this->quantidade - 1];
+}
+
 bool ListaOrdenada::Inserir(Elemento* elemento){
     if (BuscarPeloId(elemento -> getID()) != nullptr){
         return false;
     }
-    if (this->quantidade == this->tamanho){
+    if (this->estaCheia()){
         return false;
     }
     int inicio = 0, fim = this -> quantidade - 1;
@@ -51,7 +66,7 @@ bool ListaOrdenada::Inserir(Elemento* elemento){
 }
 
 bool ListaOrdenada::RemoverPrimeiro(){
-    if (this->quantidade == 0){
+    if (this->estaVazia()){
         return false;
     }
     delete this->v[0];
@@ -64,7 +79,7 @@ bool ListaOrdenada::RemoverPrimeiro(){
 }
 
 bool ListaOrdenada::RemoverUltimo(){
-    if (this->quantidade == 0){
+    if (this->estaVazia()){
         return false;
     }
     delete this->v[this->quantidade - 1];
@@ -97,4 +112,12 @@ bool ListaOrdenada::AlterarPeloId(int id, Elemento* novoElemento){
     RemoverPeloId(id);
     Inserir(novoElemento);
     return true;
+}
+void ListaOrdenada::imprimirListaOrdenada() const{
+    if (this->estaVazia()){
+        std::cout << "Lista vazia" << std::endl;
+        return;
+    }
+    this->imprimirVetor();
+    return;
 }

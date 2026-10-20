@@ -5,15 +5,20 @@
 class ListaNaoOrdenada: public Vetor {
     public:
     ListaNaoOrdenada(int capacidade) : Vetor(capacidade) {}
-    ~ListaNaoOrdenada() {}
+    virtual ~ListaNaoOrdenada() {}
 
     bool InserirNoInicio(Elemento* elemento);
     bool InserirNoFinal(Elemento* elemento);
     bool RemoverPrimeiro();
     bool RemoverUltimo();
-    bool BuscarPeloId(int id);
+    Elemento* BuscarPeloId(int id);
+    Elemento* obterPrimeiro() const;
+    Elemento* obterUltimo() const;
     bool RemoverPeloId(int id);
     bool AlterarPeloId(int id, Elemento* novoElemento);
+    void imprimirListaNaoOrdenada() const;
+    
+
     
 };
     

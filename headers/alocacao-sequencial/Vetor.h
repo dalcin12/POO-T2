@@ -22,9 +22,17 @@ class Vetor{
 
     public:
         Vetor(int n);
-        ~Vetor();
+        virtual ~Vetor();
+        int getTamanho() const;
+        int getQuantidade() const;
+        bool estaCheia() const;
+        bool estaVazia() const;
         void aumentarVetor(int n);
-        int BuscarIndice(int id);
+        int BuscarIndice(int id) const;
+        void aumentarVetor(int n);
+
+        Elemento* getElemento(int indice) const;
+        void imprimirVetor() const;
     };
 
 #endif //POO_T2_VETOR_H

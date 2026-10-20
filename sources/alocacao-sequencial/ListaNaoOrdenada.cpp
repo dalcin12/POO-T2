@@ -2,9 +2,10 @@
 ///crated by: Yan-Cods 18/10/2026
 //
 #include "../../headers/alocacao-sequencial/ListaNaoOrdenada.h"
+#include <iostream>
 
 bool ListaNaoOrdenada::InserirNoInicio(Elemento* elemento){
-    if (this->quantidade == this->tamanho){
+    if (this->estaCheia()){
         return false;
     }
     for (int i = this->quantidade; i > 0; i--){
@@ -16,7 +17,7 @@ bool ListaNaoOrdenada::InserirNoInicio(Elemento* elemento){
 }
 
 bool ListaNaoOrdenada::InserirNoFinal(Elemento* elemento){
-    if (this->quantidade == this->tamanho){
+    if (this->estaCheia()){
         return false;
     }
     this->v[this->quantidade] = elemento;
@@ -38,7 +39,7 @@ bool ListaNaoOrdenada::RemoverPrimeiro(){
 }
 
 bool ListaNaoOrdenada::RemoverUltimo(){
-    if (this->quantidade == 0){
+    if (this->estaVazia()){
         return false;
     }
     delete this->v[this->quantidade - 1];
@@ -48,12 +49,26 @@ bool ListaNaoOrdenada::RemoverUltimo(){
 }
 
 
-bool ListaNaoOrdenada::BuscarPeloId(int id){
+Elemento* ListaNaoOrdenada::BuscarPeloId(int id){
     int indice = Vetor::BuscarIndice(id);
     if (indice == -1){
-        return false;
+        return nullptr;
     }
-    return true;
+    return this->v[indice];
+}
+
+Elemento* ListaNaoOrdenada::obterPrimeiro() const{
+    if (this->estaVazia()){
+        return nullptr;
+    }
+    return this->v[0];
+}
+
+Elemento* ListaNaoOrdenada::obterUltimo() const{
+    if (this->estaVazia()){
+        return nullptr;
+    }
+    return this->v[this->quantidade - 1];
 }
 
 bool ListaNaoOrdenada::RemoverPeloId(int id){
@@ -80,3 +95,11 @@ bool ListaNaoOrdenada::AlterarPeloId(int id, Elemento* novoElemento){
     return true;
 }
 
+void ListaNaoOrdenada::imprimirListaNaoOrdenada() const{
+    if (this->estaVazia()){
+        std::cout << "Lista vazia" << std::endl;
+        return;
+    }
+    this->imprimirVetor();
+    return;
+}
