@@ -3,15 +3,15 @@
 
 #include "ListaNaoOrdenada.h"
 
-class PilhaSequencial {
+class PilhaListaSequencial {
     private:
 
         ListaNaoOrdenada listaBase;
 
     public:
 
-        PilhaSequencial(int capacidade);
-        ~PilhaSequencial();
+        PilhaListaSequencial(int capacidade);
+        ~PilhaListaSequencial();
         bool empilhar(Elemento* elemento);
         bool desempilhar();
         Elemento* consultarTopo() const;

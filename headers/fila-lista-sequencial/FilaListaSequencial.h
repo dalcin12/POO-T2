@@ -1,15 +1,15 @@
-#ifndef FILASEQUENCIAL_H
-#define FILASEQUENCIAL_H
+#ifndef FILALISTASEQUENCIAL_H
+#define FILALISTASEQUENCIAL_H
 
 #include "ListaNaoOrdenada.h"
 
-class FilaSequencial {
+class FilaListaSequencial {
     private:
         ListaNaoOrdenada listaBase;
 
     public:
-        FilaSequencial(int capacidade);
-        ~FilaSequencial();
+        FilaListaSequencial(int capacidade);
+        ~FilaListaSequencial();
         bool enfileirar(Elemento* elemento);
         bool desenfileirar();
         Elemento* consultarInicio() const;
@@ -18,4 +18,4 @@ class FilaSequencial {
         void imprimirFila() const;
 };
 
-#endif // FILASEQUENCIAL_H
+#endif // FILALISTASEQUENCIAL_H
