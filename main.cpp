@@ -47,9 +47,9 @@ int main() {
 
     cout << "\n--- Teste da Lista Ordenada Sequencial (Busca Binaria) ---\n";
     ListaOrdenada listaOrd(5);
-    listaOrd.InserirNoFinal(new Funcionario(30, "Alice", 25, 3000.0f, 40));
-    listaOrd.InserirNoFinal(new Paciente(10, "Bruno", 40, "Gripe", "Dr. Clinico"));
-    listaOrd.InserirNoFinal(new Funcionario(20, "Carla", 30, 3500.0f, 40));
+    listaOrd.Inserir(new Funcionario(30, "Alice", 25, 3000.0f, 40));
+    listaOrd.Inserir(new Paciente(10, "Bruno", 40, "Gripe", "Dr. Clinico"));
+    listaOrd.Inserir(new Funcionario(20, "Carla", 30, 3500.0f, 40));
 
     Elemento* enc = listaOrd.BuscarPeloId(20);
     if (enc != nullptr) {
