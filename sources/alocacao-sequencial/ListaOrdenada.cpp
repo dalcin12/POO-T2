@@ -89,8 +89,28 @@ bool ListaOrdenada::RemoverUltimo(){
 }
 
 bool ListaOrdenada::RemoverPeloId(int id){
-    int indice = BuscarIndice(id);
-    if (BuscarPeloId(id) == nullptr){
+    if (this->estaVazia()){
+        return false;
+    }
+
+    int inicio = 0, fim = this->quantidade - 1;
+    int indice = -1;
+    
+    while (inicio <= fim) {
+        int meio = (fim + inicio) / 2;
+        
+        if (this->v[meio]->getID() == id) {
+            indice = meio;
+            break;
+        }
+        else if (this->v[meio]->getID() > id) {
+            fim = meio - 1;
+        }
+        else {
+            inicio = meio + 1;
+        }
+    }
+    if (indice == -1){
         return false;
     }
     delete this->v[indice];

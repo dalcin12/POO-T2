@@ -29,7 +29,7 @@ class Vetor{
         bool estaVazia() const;
         void aumentarVetor(int n);
         int BuscarIndice(int id) const;
-        void aumentarVetor(int n);
+
 
         Elemento* getElemento(int indice) const;
         void imprimirVetor() const;
