@@ -1,15 +1,14 @@
-//
-// Created by samue on 18/10/2026.
-//
 #include "../../headers/alocacao-encadeada/DequeListaEncadeada.h"
 #include <iostream>
 
 using namespace std;
 
+// Usa a impressao da lista circular para mostrar os valores do deque.
 void DequeListaEncadeadaCircular::imprimirDeque() {
     listaBase.imprimirLista();
 }
 
+// Insere um valor em uma das extremidades do deque.
 bool DequeListaEncadeadaCircular::inserirInicio(int valor) {
     if(!listaBase.inserirNoInicio(valor)) {
         return false;
@@ -24,6 +23,7 @@ bool DequeListaEncadeadaCircular::inserirFim(int valor) {
     return true;
 }
 
+// Remove um valor do inicio ou do fim do deque.
 bool DequeListaEncadeadaCircular::removerInicio() {
     if(!listaBase.removerInicio()) {
         return false;
@@ -38,6 +38,7 @@ bool DequeListaEncadeadaCircular::removerFim() {
     return true;
 }
 
+// Consulta os valores das extremidades sem remove-los.
 bool DequeListaEncadeadaCircular::consultarInicio(int &valor) const {
     if (listaBase.estaVazia()) {
         return false;

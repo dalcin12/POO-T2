@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Guarda os dados recebidos para representar o paciente.
 Paciente :: Paciente(int ID, string nome, int idade, string planoDeSaude, data_de_nascimento dataDeNascimento) : Elemento(){
     this -> ID = ID;
     this -> nome = nome;
@@ -14,6 +15,7 @@ Paciente :: Paciente(int ID, string nome, int idade, string planoDeSaude, data_d
     this -> dataDeNascimento = dataDeNascimento;
 }
 
+// Exibe os dados do paciente.
 void Paciente :: imprimirInfo() const {
     cout << "--- Tipo: Paciente ---" << endl;
     cout << "ID: "<< getID() << endl;
@@ -23,6 +25,7 @@ void Paciente :: imprimirInfo() const {
     cout << "Data de nascimento: " << this->dataDeNascimento.dia << "/" << this->dataDeNascimento.mes << "/" << this->dataDeNascimento.ano << endl;
 }
 
+// Marca uma consulta somente para um dos dias disponiveis.
 bool Paciente :: agendarConsulta(){
     int dia = 0;
     cout << "Dias disponiveis: 15, 16, 17 e 18." << endl;
@@ -39,11 +42,13 @@ bool Paciente :: agendarConsulta(){
     return false;
 }
 
+// Cancela a consulta apagando o dia marcado.
 void Paciente :: cancelarConsulta() {
     this->diaDaConsulta = 0;
     cout << "Consulta cancelada com sucesso!" << endl;
 }
 
+// Retorna o dia marcado ou informa que nao ha consulta agendada.
 int Paciente :: getDiaDaConsulta() {
     if (this->diaDaConsulta >= 15 && this->diaDaConsulta <= 18) {
         return this->diaDaConsulta;
@@ -53,6 +58,7 @@ int Paciente :: getDiaDaConsulta() {
     return -1;
 }
 
+// Metodos de consulta dos dados do paciente.
 string Paciente :: getNome() {
     return this->nome;
 }
@@ -74,10 +80,12 @@ data_de_nascimento Paciente :: getDataDeNascimento() {
     return data;
 }
 
+// Atualiza o plano de saude do paciente.
 void Paciente :: setPlanoDeSaude(string novoPlanoDeSaude) {
     this->planoDeSaude = novoPlanoDeSaude;
 }
 
+// Exibe os dias que podem ser escolhidos para a consulta.
  void Paciente :: ambiente_teste(){
     cout << "Dias disponiveis: ";
 }

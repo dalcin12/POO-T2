@@ -1,10 +1,7 @@
-//
-///Created by: Yan-Cods 18/10/2026
-//
-
 #include "../../headers/alocacao-sequencial/ListaOrdenada.h"
 #include <iostream>
 
+// Procura o ID por busca binaria, aproveitando a ordem da lista.
 Elemento* ListaOrdenada::BuscarPeloId(int id){
     if (this->estaVazia()){
         return nullptr;
@@ -26,6 +23,7 @@ Elemento* ListaOrdenada::BuscarPeloId(int id){
     return nullptr;
 }
 
+// Retorna o primeiro ou o ultimo elemento, se houver algum.
 Elemento* ListaOrdenada::obterPrimeiro() const{
     if (this-> estaVazia()){
         return nullptr;
@@ -40,6 +38,7 @@ Elemento* ListaOrdenada::obterUltimo() const{
     return this->v[this->quantidade - 1];
 }
 
+// Insere pelo ID, mantendo a lista ordenada e evitando IDs repetidos.
 bool ListaOrdenada::Inserir(Elemento* elemento){
     if (BuscarPeloId(elemento -> getID()) != nullptr){
         return false;
@@ -65,6 +64,7 @@ bool ListaOrdenada::Inserir(Elemento* elemento){
     return true;
 }
 
+// Remove o elemento do inicio ou do fim e ajusta as posicoes restantes.
 bool ListaOrdenada::RemoverPrimeiro(){
     if (this->estaVazia()){
         return false;
@@ -88,6 +88,7 @@ bool ListaOrdenada::RemoverUltimo(){
     return true;
 }
 
+// Busca o ID por busca binaria e remove o elemento correspondente.
 bool ListaOrdenada::RemoverPeloId(int id){
     if (this->estaVazia()){
         return false;
@@ -122,6 +123,7 @@ bool ListaOrdenada::RemoverPeloId(int id){
     return true;
 }
 
+// Substitui o elemento e o reinsere para manter a ordem pelo ID.
 bool ListaOrdenada::AlterarPeloId(int id, Elemento* novoElemento){
     if (BuscarPeloId(id) == nullptr){
         return false;
@@ -133,6 +135,8 @@ bool ListaOrdenada::AlterarPeloId(int id, Elemento* novoElemento){
     Inserir(novoElemento);
     return true;
 }
+
+// Imprime os elementos na ordem crescente de ID.
 void ListaOrdenada::imprimirListaOrdenada() const{
     if (this->estaVazia()){
         std::cout << "Lista vazia" << std::endl;

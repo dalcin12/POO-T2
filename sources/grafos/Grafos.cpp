@@ -1,5 +1,6 @@
 #include "../../headers/grafos/Grafos.h"
 
+// Cria as estruturas que guardam os vizinhos de cada vertice.
 Grafo::Grafo(int capInicial, bool eDirecionado) {
     this->numVertices = 0;
     this->capacidade = capInicial;
@@ -18,6 +19,7 @@ Grafo::Grafo(int capInicial, bool eDirecionado) {
     }
 }
 
+// Libera os nos das listas e as linhas da matriz.
 Grafo::~Grafo() {
     // Liberta a Lista de Adjacência
     for (int i = 0; i < this->capacidade; i++) {
@@ -37,6 +39,7 @@ Grafo::~Grafo() {
     delete[] this->matrizAdj;
 }
 
+// Aumenta as duas estruturas sem perder os vertices e arestas existentes.
 void Grafo::redimensionar(int novaCapacidade) {
     // Redimensionamento manual da Lista de Adjacência
     No** novaLista = new No*[novaCapacidade];
@@ -65,6 +68,7 @@ void Grafo::redimensionar(int novaCapacidade) {
     this->capacidade = novaCapacidade;
 }
 
+// Adiciona um vertice e aumenta a capacidade quando necessario.
 void Grafo::adicionarVertice() {
     if (this->numVertices >= this->capacidade) {
         redimensionar(this->capacidade * 2);
@@ -72,26 +76,27 @@ void Grafo::adicionarVertice() {
     this->numVertices++;
 }
 
+// Registra a aresta na matriz e na lista de adjacencia.
 void Grafo::adicionarAresta(int u, int v) {
     if (u < 0 || u >= this->numVertices || v < 0 || v >= this->numVertices) {
         std::cout << "Erro: Vertice invalido!\n";
         return;
     }
 
-    // 1. Atualiza na Matriz de Adjacência
+    // Registra a aresta na matriz.
     this->matrizAdj[u][v] = 1;
     if (!this->direcionado) {
         this->matrizAdj[v][u] = 1;
     }
 
-    // 2. Atualiza na Lista de Adjacência
+    // Registra o destino na lista do vertice de origem.
     this->listaAdj[u] = new No(v, this->listaAdj[u]);
     if (!this->direcionado) {
         this->listaAdj[v] = new No(u, this->listaAdj[v]);
     }
 }
 
-// Consulta em O(1) usando a MATRIZ DE ADJACÊNCIA
+// Consulta a matriz para verificar se existe uma aresta entre os vertices.
 bool Grafo::saoVizinhos(int u, int v) {
     if (u < 0 || u >= this->numVertices || v < 0 || v >= this->numVertices) {
         return false;
@@ -99,7 +104,7 @@ bool Grafo::saoVizinhos(int u, int v) {
     return this->matrizAdj[u][v] != 0;
 }
 
-// Consulta usando a LISTA DE ADJACÊNCIA
+// Conta os vizinhos registrados na lista do vertice.
 int Grafo::obterGrau(int v) {
     if (v < 0 || v >= this->numVertices) return -1;
 
@@ -112,7 +117,7 @@ int Grafo::obterGrau(int v) {
     return grau;
 }
 
-// Busca em Largura (BFS) usando a Fila Manual
+// Visita primeiro os vizinhos mais proximos usando uma fila.
 void Grafo::buscaEmLargura(int inicio) {
     if (inicio < 0 || inicio >= this->numVertices) return;
 
@@ -141,6 +146,7 @@ void Grafo::buscaEmLargura(int inicio) {
     delete[] visitados;
 }
 
+// Visita um vertice e segue por cada vizinho ainda nao visitado.
 void Grafo::dfsRecursivo(int v, bool* visitados) {
     visitados[v] = true;
     std::cout << v << " ";
@@ -154,6 +160,7 @@ void Grafo::dfsRecursivo(int v, bool* visitados) {
     }
 }
 
+// Inicia a busca em profundidade no vertice informado.
 void Grafo::buscaEmProfundidade(int inicio) {
     if (inicio < 0 || inicio >= this->numVertices) return;
 

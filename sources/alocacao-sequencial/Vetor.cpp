@@ -1,9 +1,7 @@
-//
-// Created by yuri on 16/10/2026.
-//
 #include <iostream>
 #include "../../headers/alocacao-sequencial/Vetor.h"
 
+// Cria o vetor com todas as posicoes vazias.
 Vetor::Vetor(int n){
     this->v = new Elemento*[n];
     this->tamanho = n;
@@ -13,15 +11,15 @@ Vetor::Vetor(int n){
     }
 }
 
+// Libera os elementos armazenados e o vetor de ponteiros.
 Vetor::~Vetor(){ 
-    //Isso n apenas apagaria os ponteiros?? Não apaguei pq posso estar errado, essa materia é muito confusa. ~Yan
-    //delete[] this->v;
     for (int i = 0; i < this->tamanho; i++){
         delete this->v[i];
     }
     delete[] this->v;
 }
 
+// Retorna a capacidade atual e a quantidade de elementos.
 int Vetor::getTamanho() const{
     return this->tamanho;
 }
@@ -30,6 +28,7 @@ int Vetor::getQuantidade() const{
     return this->quantidade;
 }
 
+// Confere se ainda ha espaco ou se nao ha elementos armazenados.
 bool Vetor::estaCheia() const{
     return this->quantidade == this->tamanho;
 }
@@ -38,6 +37,7 @@ bool Vetor::estaVazia() const{
     return this->quantidade == 0;
 }
 
+// Aumenta a capacidade sem perder os elementos que ja estao no vetor.
 void Vetor::aumentarVetor(int n){
     Elemento **aux = new Elemento*[n];
     for(int i = 0; i < n; i++){
@@ -52,6 +52,7 @@ void Vetor::aumentarVetor(int n){
     this->tamanho = n;
 }
 
+// Procura o indice do elemento com o ID informado.
 int Vetor::BuscarIndice(int id) const{
     for (int i = 0; i < this->quantidade; i++){
         if (this->v[i]->getID() == id){
@@ -62,6 +63,7 @@ int Vetor::BuscarIndice(int id) const{
 
 }
 
+// Retorna o elemento somente quando o indice esta ocupado.
 Elemento* Vetor::getElemento(int indice) const{
     if (indice >= 0 && indice < this->quantidade){
         return this->v[indice];
@@ -69,6 +71,7 @@ Elemento* Vetor::getElemento(int indice) const{
     return nullptr;
 }
 
+// Imprime os elementos armazenados na ordem atual.
 void Vetor::imprimirVetor() const{
     for (int i = 0; i < this->quantidade; i++){
         if (this->v[i] != nullptr){

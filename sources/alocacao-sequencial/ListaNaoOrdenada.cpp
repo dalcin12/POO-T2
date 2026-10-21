@@ -1,9 +1,7 @@
-//
-///crated by: Yan-Cods 18/10/2026
-//
 #include "../../headers/alocacao-sequencial/ListaNaoOrdenada.h"
 #include <iostream>
 
+// Insere no inicio e desloca os elementos existentes uma posicao.
 bool ListaNaoOrdenada::InserirNoInicio(Elemento* elemento){
     if (this->estaCheia()){
         return false;
@@ -16,6 +14,7 @@ bool ListaNaoOrdenada::InserirNoInicio(Elemento* elemento){
     return true;
 }
 
+// Guarda o elemento na primeira posicao livre.
 bool ListaNaoOrdenada::InserirNoFinal(Elemento* elemento){
     if (this->estaCheia()){
         return false;
@@ -25,6 +24,7 @@ bool ListaNaoOrdenada::InserirNoFinal(Elemento* elemento){
     return true;
 }
 
+// Remove o primeiro elemento e aproxima os demais do inicio.
 bool ListaNaoOrdenada::RemoverPrimeiro(){
     if (this->quantidade == 0){
         return false;
@@ -38,6 +38,7 @@ bool ListaNaoOrdenada::RemoverPrimeiro(){
     return true;
 }
 
+// Remove o ultimo elemento armazenado.
 bool ListaNaoOrdenada::RemoverUltimo(){
     if (this->estaVazia()){
         return false;
@@ -49,6 +50,7 @@ bool ListaNaoOrdenada::RemoverUltimo(){
 }
 
 
+// Busca o elemento pelo ID usando a busca da classe Vetor.
 Elemento* ListaNaoOrdenada::BuscarPeloId(int id){
     int indice = Vetor::BuscarIndice(id);
     if (indice == -1){
@@ -57,6 +59,7 @@ Elemento* ListaNaoOrdenada::BuscarPeloId(int id){
     return this->v[indice];
 }
 
+// Retorna o primeiro ou o ultimo elemento, se houver algum.
 Elemento* ListaNaoOrdenada::obterPrimeiro() const{
     if (this->estaVazia()){
         return nullptr;
@@ -71,6 +74,7 @@ Elemento* ListaNaoOrdenada::obterUltimo() const{
     return this->v[this->quantidade - 1];
 }
 
+// Remove o elemento encontrado e desloca os seguintes para preencher a posicao.
 bool ListaNaoOrdenada::RemoverPeloId(int id){
     int indice = Vetor::BuscarIndice(id);
     if (indice == -1){
@@ -85,6 +89,7 @@ bool ListaNaoOrdenada::RemoverPeloId(int id){
     return true;
 }
 
+// Substitui o elemento que possui o ID informado.
 bool ListaNaoOrdenada::AlterarPeloId(int id, Elemento* novoElemento){
     int indice = Vetor::BuscarIndice(id);
     if (indice == -1){
@@ -95,6 +100,7 @@ bool ListaNaoOrdenada::AlterarPeloId(int id, Elemento* novoElemento){
     return true;
 }
 
+// Imprime a lista na ordem em que os elementos foram armazenados.
 void ListaNaoOrdenada::imprimirListaNaoOrdenada() const{
     if (this->estaVazia()){
         std::cout << "Lista vazia" << std::endl;

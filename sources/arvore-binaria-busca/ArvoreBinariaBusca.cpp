@@ -1,19 +1,19 @@
-//
-// Created by yuri on 15/10/2026.
-//
 #include "../../headers/arvore-binaria-busca/ArvoreBinariaBusca.h"
 #include <iostream>
 
+// Prepara um no sem filhos.
 ArvoreBinariaBusca::No::No(int id){
     this->id = id;
     this->dir = nullptr;
     this->esq = nullptr;
 }
 
+// A arvore comeca sem raiz.
 ArvoreBinariaBusca::ArvoreBinariaBusca(){
     this->raiz = nullptr;
 }
 
+// Insere cada ID no lado correspondente, sem repetir valores.
 ArvoreBinariaBusca::No* ArvoreBinariaBusca::inserir(No* raiz, int id){
     if (raiz == nullptr) return new No(id);
 
@@ -27,10 +27,12 @@ ArvoreBinariaBusca::No* ArvoreBinariaBusca::inserir(No* raiz, int id){
     return raiz;
 }
 
+// Atualiza a raiz caso a arvore ainda esteja vazia.
 void ArvoreBinariaBusca::inserir(int id){
     this->raiz = inserir(this->raiz, id);
 }
 
+// Procura o ID seguindo o lado indicado pela ordem dos valores.
 bool ArvoreBinariaBusca::buscarPeloId(No* raiz, int id){
     if (raiz == nullptr) return false;
     if (id == raiz->id) return true;
@@ -41,6 +43,7 @@ bool ArvoreBinariaBusca::buscarPeloId(No* raiz, int id){
         return buscarPeloId(raiz->esq, id);
 }
 
+// Exibe se o ID foi encontrado.
 void ArvoreBinariaBusca::buscarPeloId(int id){
     bool resultado = buscarPeloId(this->raiz, id);
     if (resultado)
@@ -49,6 +52,7 @@ void ArvoreBinariaBusca::buscarPeloId(int id){
         std::cout << "Não Encontrado!" << std::endl;
 }
 
+// Encontra o menor ID da subarvore a direita.
 ArvoreBinariaBusca::No* ArvoreBinariaBusca::sucessor(No* atual){
     atual = atual->dir;
     while (atual != nullptr && atual->esq != nullptr)
@@ -56,6 +60,7 @@ ArvoreBinariaBusca::No* ArvoreBinariaBusca::sucessor(No* atual){
     return atual;
 }
 
+// Remove o ID e reorganiza os filhos quando necessario.
 ArvoreBinariaBusca::No* ArvoreBinariaBusca::removerPeloId(No* raiz, int id){
     if (raiz == nullptr)
         return raiz;
@@ -83,10 +88,12 @@ ArvoreBinariaBusca::No* ArvoreBinariaBusca::removerPeloId(No* raiz, int id){
     return raiz;
 }
 
+// Atualiza a raiz depois da remocao.
 void ArvoreBinariaBusca::removerPeloId(int id){
     this->raiz = removerPeloId(this->raiz, id);
 }
 
+// Escolhe entre os percursos em ordem, pre-ordem e pos-ordem.
 void ArvoreBinariaBusca::imprimir(No* raiz, int escolha){
     switch (escolha)
     {
@@ -113,6 +120,7 @@ void ArvoreBinariaBusca::imprimir(No* raiz, int escolha){
     }
 }
 
+// Inicia cada percurso a partir da raiz.
 void ArvoreBinariaBusca::emOrdem(){
     imprimir(this->raiz, 1);
 }
@@ -123,6 +131,7 @@ void ArvoreBinariaBusca::posOrdem(){
     imprimir(this->raiz, 3);
 }
 
+// Libera os nos depois de destruir suas subarvores.
 void ArvoreBinariaBusca::destruirArvoreBinaria(No* no){
     if (no == nullptr) return;
 
@@ -132,6 +141,7 @@ void ArvoreBinariaBusca::destruirArvoreBinaria(No* no){
     delete no;
 }
 
+// Libera toda a memoria ocupada pela arvore.
 ArvoreBinariaBusca::~ArvoreBinariaBusca(){
     destruirArvoreBinaria(this->raiz);
     this->raiz = nullptr;
