@@ -26,7 +26,6 @@ class ListaDuplamenteEncadeadaCircular {
         bool removerPeloId(No* cabeca, int Id);
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
-        void ambienteTeste(No* cabeca);
 
         // Metodos auxiliares para implementacao da fila.
         bool estaVazia(No* cabeca) const;
@@ -50,7 +49,6 @@ class ListaDuplamenteEncadeadaCircular {
         bool removerPeloId(int Id);
         No* buscarPeloId(int Id);
         bool alterarPeloId(int Id, int novoValor);
-        void ambienteTeste();
 
         // Metodos publicos da fila.
         bool estaVazia() const;

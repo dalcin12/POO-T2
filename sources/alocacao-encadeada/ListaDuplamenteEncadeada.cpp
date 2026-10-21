@@ -218,36 +218,6 @@ bool ListaDuplamenteEncadeada::alterarPeloId(int Id, int novoValor) {
     return alterarPeloId(this->cabeca, Id, novoValor);
 }
 
-void ListaDuplamenteEncadeada::ambienteTeste(No* cabeca) {
-    inserirNoInicio(cabeca, 10);
-    inserirNoInicio(cabeca, 20);
-    inserirNoFim(cabeca, 5);
-    inserirOrdenado(cabeca, 15);
-
-    cout << "Lista apos insercoes: ";
-    imprimirLista(cabeca);
-
-    removerInicio(cabeca);
-    cout << "Lista apos remover do inicio: ";
-    imprimirLista(cabeca);
-
-    removerFim(cabeca);
-    cout << "Lista apos remover do fim: ";
-    imprimirLista(cabeca);
-
-    removerPeloId(cabeca, 15);
-    cout << "Lista apos remover pelo ID 15: ";
-    imprimirLista(cabeca);
-
-    alterarPeloId(cabeca, 10, 25);
-    cout << "Lista apos alterar o valor do ID 10 para 25: ";
-    imprimirLista(cabeca);
-}
-
-void ListaDuplamenteEncadeada::ambienteTeste() {
-    ambienteTeste(this->cabeca);
-}
-
 // Complexidade: O(n) - liberacao da memoria da lista.
 bool ListaDuplamenteEncadeada::destruirListaDuplamenteEncadeada(No* cabeca) {
     if (cabeca == nullptr) {

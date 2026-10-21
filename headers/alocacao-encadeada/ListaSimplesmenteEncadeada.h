@@ -25,7 +25,6 @@ class ListaSimplesmenteEncadeada {
         bool removerPeloId(No* cabeca, int Id);
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
-        void ambienteTeste(No* cabeca);
 
         // Metodos auxiliares para implementacao da pilha.
         bool estaVazia(No* cabeca) const;
@@ -52,7 +51,6 @@ class ListaSimplesmenteEncadeada {
         // Metodos publicos da pilha
         bool estaVazia() const;
         int obterInicio() const;
-        void ambienteTeste();
 };
 
 #endif // LISTASIMPLESMENTEENCADEADA_H

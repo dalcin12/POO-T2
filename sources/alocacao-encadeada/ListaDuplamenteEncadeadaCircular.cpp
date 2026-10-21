@@ -202,36 +202,6 @@ bool ListaDuplamenteEncadeadaCircular::alterarPeloId(int Id, int novoValor) {
     return alterarPeloId(this->cabeca, Id, novoValor);
 }
 
-void ListaDuplamenteEncadeadaCircular::ambienteTeste(No* cabeca) {
-    inserirNoInicio(cabeca, 10);
-    inserirNoInicio(cabeca, 20);
-    inserirNoFim(cabeca, 5);
-    inserirOrdenado(cabeca, 15);
-
-    cout << "Lista apos insercoes: ";
-    imprimirLista(cabeca);
-
-    removerInicio(cabeca);
-    cout << "Lista apos remover o inicio: ";
-    imprimirLista(cabeca);
-
-    removerFim(cabeca);
-    cout << "Lista apos remover o fim: ";
-    imprimirLista(cabeca);
-
-    removerPeloId(cabeca, 15);
-    cout << "Lista apos remover o no com valor 15: ";
-    imprimirLista(cabeca);
-
-    alterarPeloId(cabeca, 10, 25);
-    cout << "Lista apos alterar o no com valor 10 para 25: ";
-    imprimirLista(cabeca);
-}
-
-void ListaDuplamenteEncadeadaCircular::ambienteTeste() {
-    ambienteTeste(this->cabeca);
-}
-
 // Complexidade: O(1) - retorna se a fila esta vazia.
 bool ListaDuplamenteEncadeadaCircular::estaVazia(No* cabeca) const {
     return cabeca->prox == cabeca;

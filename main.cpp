@@ -70,13 +70,76 @@ int main() {
 
     cout << "--- Teste de Listas Encadeadas ---\n";
     ListaSimplesmenteEncadeada listaSimples;
-    listaSimples.ambienteTeste();
+    listaSimples.inserirNoInicio(10);
+    listaSimples.inserirNoFim(20);
+    listaSimples.inserirOrdenado(15);
+    cout << "\nLista simplesmente encadeada apos insercoes: ";
+    listaSimples.imprimirLista();
+
+    listaSimples.removerInicio();
+    cout << "Apos remover do inicio: ";
+    listaSimples.imprimirLista();
+
+    listaSimples.removerFim();
+    cout << "Apos remover do fim: ";
+    listaSimples.imprimirLista();
+
+    listaSimples.removerPeloId(15);
+    cout << "Apos remover pelo ID 15: ";
+    listaSimples.imprimirLista();
+
+    listaSimples.inserirNoInicio(30);
+    listaSimples.alterarPeloId(30, 35);
+    cout << "Apos alterar o valor do ID 30 para 35: ";
+    listaSimples.imprimirLista();
 
     ListaDuplamenteEncadeada listaDupla;
-    listaDupla.ambienteTeste();
+    listaDupla.inserirNoInicio(10);
+    listaDupla.inserirNoFim(20);
+    listaDupla.inserirOrdenado(15);
+    cout << "\nLista duplamente encadeada apos insercoes: ";
+    listaDupla.imprimirLista();
+
+    listaDupla.removerInicio();
+    cout << "Apos remover do inicio: ";
+    listaDupla.imprimirLista();
+
+    listaDupla.removerFim();
+    cout << "Apos remover do fim: ";
+    listaDupla.imprimirLista();
+
+    listaDupla.removerPeloId(15);
+    cout << "Apos remover pelo ID 15: ";
+    listaDupla.imprimirLista();
+
+    listaDupla.inserirNoInicio(30);
+    listaDupla.alterarPeloId(30, 35);
+    cout << "Apos alterar o valor do ID 30 para 35: ";
+    listaDupla.imprimirLista();
 
     ListaDuplamenteEncadeadaCircular listaCircular;
-    listaCircular.ambienteTeste();
+    listaCircular.inserirNoInicio(10);
+    listaCircular.inserirNoFim(20);
+    listaCircular.inserirOrdenado(15);
+    cout << "\nLista duplamente encadeada circular apos insercoes: ";
+    listaCircular.imprimirLista();
+
+    listaCircular.removerInicio();
+    cout << "Apos remover do inicio: ";
+    listaCircular.imprimirLista();
+
+    listaCircular.removerFim();
+    cout << "Apos remover do fim: ";
+    listaCircular.imprimirLista();
+
+    listaCircular.removerPeloId(15);
+    cout << "Apos remover pelo ID 15: ";
+    listaCircular.imprimirLista();
+
+    listaCircular.inserirNoInicio(30);
+    listaCircular.alterarPeloId(30, 35);
+    cout << "Apos alterar o valor do ID 30 para 35: ";
+    listaCircular.imprimirLista();
 
     cout << "\n--- Teste da Pilha sobre Lista Simplesmente Encadeada (LIFO) ---\n";
     PilhaListaSimplesmenteEncadeada pilha;

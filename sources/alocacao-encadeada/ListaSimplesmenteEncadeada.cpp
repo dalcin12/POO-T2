@@ -205,39 +205,6 @@ bool ListaSimplesmenteEncadeada::alterarPeloId(int Id, int novoValor) {
     return alterarPeloId(this->cabeca, Id, novoValor);
 }
 
-void ListaSimplesmenteEncadeada::ambienteTeste(No* cabeca) {
-
-    // Inserir elementos
-    inserirNoInicio(cabeca, 10);
-    inserirNoFim(cabeca, 20);
-    inserirOrdenado(cabeca, 15);
-
-    // Imprimir lista
-    cout << "Lista apos insercoes: ";
-    imprimirLista();
-
-    // Remover elementos
-    removerInicio(cabeca);
-    removerFim(cabeca);
-    removerPeloId(cabeca, 15);
-
-    // Imprimir lista após remoções
-    cout << "Lista apos remocoes: ";
-    imprimirLista();
-
-    // Alterar elemento
-    inserirNoInicio(cabeca, 30);
-    alterarPeloId(cabeca, 30, 35);
-
-    // Imprimir lista após alteração
-    cout << "Lista apos alteracao: ";
-    imprimirLista();
-}
-
-void ListaSimplesmenteEncadeada::ambienteTeste() {
-    ambienteTeste(this->cabeca);
-}
-
 // Complexidade: O(1) - checa se a lista esta vazia. 
 bool ListaSimplesmenteEncadeada::estaVazia(No* cabeca) const {
     return cabeca->prox == nullptr;

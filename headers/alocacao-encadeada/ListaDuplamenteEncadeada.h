@@ -28,7 +28,6 @@ class ListaDuplamenteEncadeada {
         bool removerPeloId(No* cabeca, int Id);
         No* buscarPeloId(No* cabeca, int Id);
         bool alterarPeloId(No* cabeca, int Id, int novoValor);
-        void ambienteTeste(No* cabeca);
         bool destruirListaDuplamenteEncadeada(No* cabeca);
     
     public:
@@ -45,7 +44,6 @@ class ListaDuplamenteEncadeada {
         bool removerPeloId(int Id);
         No* buscarPeloId(int Id);
         bool alterarPeloId(int Id, int novoValor);
-        void ambienteTeste();
 };
 
 
