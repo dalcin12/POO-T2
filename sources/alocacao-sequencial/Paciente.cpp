@@ -84,8 +84,3 @@ data_de_nascimento Paciente :: getDataDeNascimento() {
 void Paciente :: setPlanoDeSaude(string novoPlanoDeSaude) {
     this->planoDeSaude = novoPlanoDeSaude;
 }
-
-// Exibe os dias que podem ser escolhidos para a consulta.
- void Paciente :: ambiente_teste(){
-    cout << "Dias disponiveis: ";
-}

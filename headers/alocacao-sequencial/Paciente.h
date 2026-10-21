@@ -22,7 +22,6 @@ class Paciente : public Elemento{
         Paciente(int ID, std :: string nome, int idade, std :: string planoDeSaude, data_de_nascimento dataDeNascimento);
         
         void imprimirInfo() const;
-        void ambiente_teste();
         bool agendarConsulta();
         void cancelarConsulta();
         int getDiaDaConsulta();
